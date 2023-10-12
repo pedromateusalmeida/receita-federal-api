@@ -6,9 +6,39 @@ import glob
 import secrets
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType, FloatType
-from pyspark.sql.functions import when, col, to_date, regexp_extract, length, regexp_replace, concat_ws, lit, upper, concat, udf
+from pyspark.sql.functions import regexp_replace, when,length,to_date,upper,lower,col,split,explode,coalesce,concat_ws,concat,lit,broadcast,regexp_extract,month,year,to_date
+from pyspark.sql.functions import broadcast,expr,udf
 from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
+
+   
+def geocode_address(address):
+    """
+    Geocodifica um endereço, convertendo-o em coordenadas de latitude e longitude.
+
+    Parâmetros:
+        address (str): Endereço a ser geocodificado.
+
+    Retorna:
+        tuple: Um par contendo a latitude e a longitude do endereço fornecido. 
+                Se o endereço não puder ser geocodificado, retorna (None, None).
+
+    Exemplo:
+        lat, lon = geocode_address("1600 Amphitheatre Parkway, Mountain View, CA")
+
+    Notas:
+        - Usa o serviço Nominatim para a geocodificação.
+        - Incorpora um limitador de taxa para garantir que não excedamos os limites de requisições por segundo 
+            do serviço.
+    """
+    geolocator = Nominatim(user_agent="CNPJ_GEOLOCATION")
+    geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)
+    location = geocode(address)
+    if location:
+        return (location.latitude, location.longitude)
+    else:
+        return (None, None)
+
 
 class ReceitaLT:
     """
@@ -311,40 +341,13 @@ class ReceitaLT:
 
         return final_df
     
-        # Original function
-    def geocode_address(address):
-        """
-        Geocodifica um endereço, convertendo-o em coordenadas de latitude e longitude.
-
-        Parâmetros:
-            address (str): Endereço a ser geocodificado.
-
-        Retorna:
-            tuple: Um par contendo a latitude e a longitude do endereço fornecido. 
-                   Se o endereço não puder ser geocodificado, retorna (None, None).
-
-        Exemplo:
-            lat, lon = geocode_address("1600 Amphitheatre Parkway, Mountain View, CA")
-
-        Notas:
-            - Usa o serviço Nominatim para a geocodificação.
-            - Incorpora um limitador de taxa para garantir que não excedamos os limites de requisições por segundo 
-              do serviço.
-        """
-        geolocator = Nominatim(user_agent="CNPJ_GEOLOCATION")
-        geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)
-        location = geocode(address)
-        if location:
-            return (location.latitude, location.longitude)
-        else:
-            return (None, None)
 
     # Define the UDF
     schema = StructType([
         StructField("latitude", FloatType(), nullable=True),
         StructField("longitude", FloatType(), nullable=True)
     ])
-
+    
     @udf(schema)
     def geocode_udf(address):
         """
@@ -364,6 +367,7 @@ class ReceitaLT:
             - Esta UDF encapsula a função `geocode_address`.
             - Retorna um tipo de dado complexo (Struct) com dois campos: 'latitude' e 'longitude'.
         """
+        global geocode_address
         lat, lon = geocode_address(address)
         return {"latitude": lat, "longitude": lon}
     
@@ -427,10 +431,10 @@ class ReceitaLT:
         df = df.withColumn("DT_INICIO_ATIVIDADE", to_date(col('DT_INICIO_ATIVIDADE'), "yyyyMMdd"))
         df = df.withColumn("DT_SIT_ESPECIAL", to_date(col('DT_SIT_ESPECIAL'), "yyyyMMdd"))
         
-        df = df.withColumn( "ano_cadastro", F.year('DT_INICIO_ATIVIDADE'))
-        df = df.withColumn( "mes_cadastro", F.month('DT_INICIO_ATIVIDADE'))
-        df = df.withColumn( "ano_sit_cadastral", F.year('DT_SIT_CADASTRAL'))
-        df = df.withColumn( "mes_sit_cadastral", F.month('DT_SIT_CADASTRAL'))
+        df = df.withColumn( "ano_cadastro", year('DT_INICIO_ATIVIDADE'))
+        df = df.withColumn( "mes_cadastro", month('DT_INICIO_ATIVIDADE'))
+        df = df.withColumn( "ano_sit_cadastral", year('DT_SIT_CADASTRAL'))
+        df = df.withColumn( "mes_sit_cadastral", month('DT_SIT_CADASTRAL'))
         
         # Defina o dicionário de mapeamento
         mapping = {1: 'NULA',2: 'ATIVA',3: 'SUSPENSA',4: 'INAPTA',8: 'BAIXADA'}
@@ -467,11 +471,11 @@ class ReceitaLT:
                                      "NUMERO",concat_ws(" - ", "MUNICIPIO", "UF")))
         
         # Adicione a lógica de geocodificação aqui
-        df = df.withColumn("COORDENADAS", geocode_udf(df["ENDERECO_COMPLETO"]))
+        df = df.withColumn("COORDENADAS", ReceitaLT.geocode_udf(df["ENDERECO_COMPLETO"]))
         
         df = df.withColumn("COORDENADAS",
                            when((col("COORDENADAS.latitude").isNull()) & (col("COORDENADAS.longitude").isNull()),
-                                geocode_udf(df["CEP"])).otherwise(col("COORDENADAS")))
+                                ReceitaLT.geocode_udf(df["CEP"])).otherwise(col("COORDENADAS")))
         
         # Correção da coluna provedor
         df = df.replace(dic_provedor, subset=['PROVEDOR'])
@@ -483,7 +487,7 @@ class ReceitaLT:
         replace_expr = reduce(
             lambda a, b: regexp_replace(a, rf"\b{b[0]}\b", b[1]),
             dic_prov_lower.items(),
-            F.col("valid_email"))
+            col("valid_email"))
 
         df = df.withColumn("valid_email", replace_expr)
         df = df.withColumnRenamed("valid_email", "VALILD_EMAIL")
@@ -561,10 +565,10 @@ class ReceitaLT:
             - Esta função assume que as colunas de data estão no formato "yyyyMMdd" e realiza a conversão para o tipo data.
             - As colunas de datas que são processadas incluem: DATA_OPCAO_PELO_SIMPLES, DATA_EXCLUSAO_SIMPLES, DATA_EXCLUSAO_MEI e DATA_OPCAO_PELO_MEI.
         """
-        df = df.withColumn("DT_OPCAO_SIMPLES", F.to_date(F.col('DATA_OPCAO_PELO_SIMPLES'), "yyyyMMdd"))
-        df = df.withColumn("DT_EXCLUSAO_SIMPLES", to_date(F.col('DATA_EXCLUSAO_SIMPLES'), "yyyyMMdd"))
-        df = df.withColumn("DT_EXCLUSAO_MEI", to_date(F.col('DATA_EXCLUSAO_MEI'), "yyyyMMdd"))
-        df = df.withColumn("DT_OPCAO_MEI", to_date(F.col('DATA_OPCAO_PELO_MEI'), "yyyyMMdd"))
+        df = df.withColumn("DT_OPCAO_SIMPLES", to_date,(col('DATA_OPCAO_PELO_SIMPLES'), "yyyyMMdd"))
+        df = df.withColumn("DT_EXCLUSAO_SIMPLES", to_date(col('DATA_EXCLUSAO_SIMPLES'), "yyyyMMdd"))
+        df = df.withColumn("DT_EXCLUSAO_MEI", to_date(col('DATA_EXCLUSAO_MEI'), "yyyyMMdd"))
+        df = df.withColumn("DT_OPCAO_MEI", to_date(col('DATA_OPCAO_PELO_MEI'), "yyyyMMdd"))
         df = df.select('CNPJ_BASICO','OPÇAO_PELO_MEI','DT_OPCAO_MEI','DT_EXCLUSAO_MEI','OPCAO_PELO_SIMPLES','DT_OPCAO_SIMPLES','DT_EXCLUSAO_SIMPLES')
         
         return df
