@@ -1,0 +1,1285 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação simplificada, auxiliando no seu dia-a-dia">
+      
+      
+        <meta name="author" content="https://www.linkedin.com/in/pedro-mateus-almeida-b51261268/">
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../mei/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.5">
+    
+    
+      
+        <title>Sobre CNPJ - Projeto extraindo valor dos dados da Receita Federal</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6a10b989.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#o-que-e" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Projeto extraindo valor dos dados da Receita Federal" class="md-header__button md-logo" aria-label="Projeto extraindo valor dos dados da Receita Federal" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Projeto extraindo valor dos dados da Receita Federal
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sobre CNPJ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pedromateusalmeida/receita-federal-api" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Receita Federal API
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Projeto extraindo valor dos dados da Receita Federal" class="md-nav__button md-logo" aria-label="Projeto extraindo valor dos dados da Receita Federal" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Projeto extraindo valor dos dados da Receita Federal
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pedromateusalmeida/receita-federal-api" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Receita Federal API
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre o autor e o projeto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Bases Públicas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Bases Públicas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CNPJ
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            CNPJ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Sobre CNPJ
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Sobre CNPJ
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e" class="md-nav__link">
+    O que é?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emissao-do-cnpj" class="md-nav__link">
+    Emissão do CNPJ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#porte" class="md-nav__link">
+    Porte
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classificacao-nacional-de-atividades-economicas-cnae" class="md-nav__link">
+    Classificação Nacional de Atividades Econômicas - CNAE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#situacao-cadastral-de-um-cnpj" class="md-nav__link">
+    Situação Cadastral de um CNPJ
+  </a>
+  
+    <nav class="md-nav" aria-label="Situação Cadastral de um CNPJ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motivo-de-situacao-cadastral" class="md-nav__link">
+    Motivo de Situação Cadastral
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-possivel-saber-com-a-base-cnpj" class="md-nav__link">
+    O que é possível saber com a base CNPJ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#potencialidades-e-limitacoes" class="md-nav__link">
+    Potencialidades e Limitações
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mei/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre MEI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dic_dados_cnpj/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dicionário de Dados CNPJ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schema dos dados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extracao_dados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extração dos dados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tratamento_dados_cnpj/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tratamento dos dados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analise_mei/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Análise de dados do MEI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versionamento_projeto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Controle de versão e ferramentas no projeto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e" class="md-nav__link">
+    O que é?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emissao-do-cnpj" class="md-nav__link">
+    Emissão do CNPJ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#porte" class="md-nav__link">
+    Porte
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classificacao-nacional-de-atividades-economicas-cnae" class="md-nav__link">
+    Classificação Nacional de Atividades Econômicas - CNAE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#situacao-cadastral-de-um-cnpj" class="md-nav__link">
+    Situação Cadastral de um CNPJ
+  </a>
+  
+    <nav class="md-nav" aria-label="Situação Cadastral de um CNPJ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motivo-de-situacao-cadastral" class="md-nav__link">
+    Motivo de Situação Cadastral
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-possivel-saber-com-a-base-cnpj" class="md-nav__link">
+    O que é possível saber com a base CNPJ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#potencialidades-e-limitacoes" class="md-nav__link">
+    Potencialidades e Limitações
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Sobre CNPJ</h1>
+
+<p><br /></p>
+<p><img alt="Image title" src="../CNPJ_CARD.png" /></p>
+<h2 id="o-que-e">O que é?</h2>
+<div style="text-align: justify">
+O Cadastro Nacional da Pessoa Jurídica, amplamente reconhecido pela sigla CNPJ, foi instituído em julho de 1998. Esse cadastro foi criado com a finalidade de registrar, organizar e identificar todas as Pessoas Jurídicas (PJ) que operam no Brasil e que possuem obrigações junto à Receita Federal Brasileira (RFB).
+<br />
+<br />
+De acordo com a Receita Federal, o CNPJ é "um banco de dados administrado pela RFB, que armazena informações cadastrais das Pessoas Jurídicas e outras entidades, sendo de interesse das administrações tributárias da União, dos Estados, do Distrito Federal e dos Municípios". Isso significa que qualquer empreendedor ou empresário que deseje atuar legalmente no mercado brasileiro, oferecendo produtos ou serviços e emitindo notas fiscais, precisa registrar sua empresa e obter um CNPJ. 
+<br />
+<br />
+O número do CNPJ é composto por 14 dígitos formatados da seguinte maneira: AA.AAA.AAA/BBBB-CC. Os oito primeiros dígitos (representados pelas letras 'A') formam a base ou raiz do CNPJ, identificando a empresa em si. Os próximos quatro dígitos (representados pelas letras 'B') distinguem se a unidade é a matriz ou uma filial da empresa. Os dois últimos dígitos (representados pelas letras 'C') atuam como dígitos verificadores, garantindo a autenticidade do número.
+</div>
+
+<div class="admonition tldr">
+<p class="admonition-title">Resumo</p>
+<ul>
+<li>&nbsp; <strong>Fonte de dados:</strong> Receita Federal Brasileira;</li>
+<li>&nbsp; <strong>Método de coleta do RFB:</strong> Toda empresa que busca estar legalizada no país tem a obrigatoriedade de se cadastrar junto à RFB;</li>
+<li>&nbsp; <strong>Método de coleta:</strong> Dados disponibilizados pela Receita Federal Brasileira;</li>
+<li>&nbsp; <strong>Tratamento de dados:</strong> Pedro Almeida</li>
+<li>&nbsp; <strong>Periodicidade:</strong> Os dados são atualizados mensalmente;</li>
+<li>&nbsp; <strong>Abrangência:</strong> Nacional (Brasil), portanto, as análises podem ser feitas em granularidade de municipio. </li>
+<li>&nbsp; <strong>Técnica de Investigação:</strong> Censitária;</li>
+</ul>
+</div>
+<p><br /></p>
+<details class="question">
+<summary>Curiosidade: o que é MEI?</summary>
+<p><div style="text-align: justify">
+O Microempreendedor Individual (MEI), classificação criada em 2009, tem o propósito de regularizar uma pessoa que trabalha por conta própria, ou seja, um profissional autônomo que precisa emitir nota fiscal, ou ter facilidades para conseguir um empréstimo ou até mesmo para abrir uma conta bancária. Ao criar um MEI, o profissional autônomo passa a ter um registro de CNPJ e a ter acesso a benefícios da Previdência Social.
+</div></p>
+</details>
+<h2 id="emissao-do-cnpj">Emissão do CNPJ</h2>
+<div class="admonition note">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Quem precisa dele?</label><label for="__tabbed_1_2">O que é informado no cadastro?</label><label for="__tabbed_1_3">Modelo de ficha    Cadastral de CNPJ</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Sindicatos</strong>;</p>
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Condomínios</strong>;</p>
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Associações</strong>;</p>
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>ONGs (Organizações não governamentais)</strong>;</p>
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Igrejas</strong>;</p>
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Partidos políticos</strong>;</p>
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Empresas e orgãos públicos</strong>;</p>
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Autônomos</strong>.</p>
+</div>
+<div class="tabbed-block">
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Número de inscrição</strong>;</p>
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Nome empresarial</strong>;</p>
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Composição societária</strong>;</p>
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Endereço</strong>;</p>
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Data de abertura</strong>;</p>
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Natureza jurídica</strong>;</p>
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Atividade econômica</strong>;</p>
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Se existente, atividade econômica secundária</strong>;</p>
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Situação cadastral</strong>;</p>
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Código e descrição do estatuto jurídico</strong>;</p>
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> &nbsp; <strong>Outros</strong>.</p>
+</div>
+<div class="tabbed-block">
+<p><img alt="Ficha CNPJ" src="../EXEMPLO_FICHA_CNPJ.png" /></p>
+</div>
+</div>
+</div>
+</div>
+<h2 id="porte">Porte</h2>
+<p>Ao se falar de porte de uma empresa, não estamos tratando somente do capital financeiro que a pessoa jurídica possui, mas também do espaço físico ou número de funcionários. Atualmente existem cinco categorias de portes de empresa, são elas:</p>
+<ul>
+<li>Microempreendedor Individual (MEI);</li>
+<li>Microempresa (ME);</li>
+<li>Empresa de Pequeno Porte (EPP);</li>
+<li>Empresa de Médio Porte;</li>
+<li>Grande Empresa.</li>
+</ul>
+<div class="admonition note">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">MEI</label><label for="__tabbed_2_2">ME</label><label for="__tabbed_2_3">EPP</label><label for="__tabbed_2_4">Médio Porte</label><label for="__tabbed_2_5">Grande Porte</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>O Microempreendedor Individual é um porte de empresa para abarcar atividades com faturamento até R$81 mil por ano – é também o menor tipo de empresa disponível no Brasil. Só é permitido contratar apenas um colaborador e pagando, no máximo, o teto da categoria, neste modelo.</p>
+</div>
+<div class="tabbed-block">
+<p>O porte de Microempresa, por classificação de faturamento conforme o Estatuto Nacional da Microempresa e da Empresa de Pequeno Porte, Lei Complementar 123, de 2006, permite atingir até R$360 mil por ano. Uma microempresa pode ter até 20 funcionários.</p>
+</div>
+<div class="tabbed-block">
+<p>Pela mesma classificação do Estatuto, uma Empresa de Pequeno Porte pode faturar até R$4,8 milhões por ano. Este formato pode ter até 100 funcionários.</p>
+</div>
+<div class="tabbed-block">
+<p>Esse tipo de classificação pode oscilar de uma área para outra, mas geralmente o faturamento está em torno de R$ 4,8 milhões e menor ou igual a R$ 300 milhões. Na indústria, o número de funcionários para ser categorizado como médio porte é de 100 a 499 empregados. Já ná área de comércio e serviços, é em torno de 50 a 99 empregados. </p>
+</div>
+<div class="tabbed-block">
+<p>Por fim, uma empresa é categorizada como grande porte quando seu faturamento atinge valores superiores a R$ 300 milhões. E o número de empregados geralmente é superior a 500 funcionários na indústria, já em comércio e serviços é superior a 100 empregados.  </p>
+</div>
+</div>
+</div>
+</div>
+<h2 id="classificacao-nacional-de-atividades-economicas-cnae">Classificação Nacional de Atividades Econômicas - CNAE</h2>
+<div style="text-align: justify">
+A CNAE (Classificação Nacional de Atividades Econômicas) é o instrumento de padronização nacional dos códigos de atividade econômica e dos critérios de enquadramento utilizados pelos diversos órgãos da Administração Tributária do país. 
+<br/>
+<br/>
+Trata-se de uma informação cadastral obrigatória a todos os engajados na produção de bens e serviços, podendo compreender estabelecimentos de empresas privadas ou públicas, estabelecimentos agrícolas, organismos públicos e privados, instituições sem fins lucrativos e agentes autônomos (pessoa física).
+</div>
+
+<div class="admonition tip">
+<p class="admonition-title">CNAE na base do CNPJ</p>
+<p>Na base do CNPJ, o CNAE permite o acesso a, ou a comparação das empresas de ramos de atividade específicos, havendo a possibilidade de analisar o ramo de atividade principal e também os secundários.</p>
+<p><img alt="Alt text" src="../cnae_dic.png" title="CNAE no layout" /></p>
+<p><strong>Categorias do CNAE:</strong></p>
+<p><a class="md-button md-button--primary" href="https://drive.google.com/file/d/1A_643SyKPJe20z5xrtUOAV5ktJXjF88L/view?usp=sharing">Dicionário CNAE</a></p>
+</div>
+<h2 id="situacao-cadastral-de-um-cnpj">Situação Cadastral de um CNPJ</h2>
+<div style="text-align: justify">
+A "situação cadastral" é a informação constante no CNPJ que identifica o status, a condição atual da pessoa jurídica. A primeira delas é ativa, a segunda inapta , a terceira situação cadastral de um CNPJ é suspensa, a quarta classificação cadastral de CNPJ é baixada, por fim, nula.
+</div>
+
+<div class="admonition note">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Ativa</label><label for="__tabbed_3_2">Inapta</label><label for="__tabbed_3_3">Suspensa</label><label for="__tabbed_3_4">Baixada</label><label for="__tabbed_3_5">Nula</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Identifica aquelas entidades ou estabelecimentos que estão regulares e em funcionamento (ou também quando não se enquadram em nenhuma das quatro opções seguintes).</p>
+</div>
+<div class="tabbed-block">
+<p>Identifica organizações que estão inadimplentes em suas responsabilidades fiscais ou legais por dois exercícios.</p>
+</div>
+<div class="tabbed-block">
+<p>a) solicitar baixa de inscrição, estando esta solicitação em análise ou tendo sido indeferida;<br />
+b) estiver em processo de declaração de inaptidão por irregularidades fiscais ou legais;<br />
+c) interromper temporariamente suas atividades, mediante solicitação;<br />
+d) apresentar indício de atitude fraudulenta de sócio ou titular. <br /></p>
+</div>
+<div class="tabbed-block">
+<p>Identifica quando a Pessoa Jurídica realiza pedido de baixa, sendo deferido.</p>
+</div>
+<div class="tabbed-block">
+<p>a) Quando é atribuído mais de um número de inscrição para o mesmo estabelecimento;<br />
+b) Se constatado vício em alguma ação praticada com aquele CNPJ;<br />
+c) Se for constatado ato de inscrição relativo à entidade que não atenda aos requisitos de inscrição no CNPJ.<br />  </p>
+</div>
+</div>
+</div>
+</div>
+<h3 id="motivo-de-situacao-cadastral">Motivo de Situação Cadastral</h3>
+<div style="text-align: justify">
+A fim de compreender melhor a situação cadastral, a Receita Federal Brasileira criou 68 categorias de motivo de situação cadastral que dão mais detalhes sobre cada tipo.
+</div>
+
+<details class="note">
+<summary>Motivo de Situação Cadastral</summary>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Motivo de Situação Cadastral</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Extinção por Encerramento, Liquidação Voluntária</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Incorporação</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Fusão</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Cisão Total</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Encerramento da Falência</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Encerramento da Liquidação</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Elevação a Matriz</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Transpasse</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Não Início de Atividade</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Extinção pelo Encerramento da Liquidação Judicial</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Anulação por Multiplicidade</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Anulação Online de Ofício</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Omissão Contumaz</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Omissão Não Localizada</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Inexistente de Fato</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Anulação por Vícios</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Baixa Iniciada e Ainda Não Deferida</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Interrupção Temporária das Atividades</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Omisso De DIRPJ até 5 Exercícios</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Em Condição de Inaptidão</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Pedido de Baixa Indeferida</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Restabelecimento com Certidão Positiva com Efeito de Negativa</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Com Pendência Fiscal</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Por Emissão de Certidão Negativa</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Certidão Positiva Com Efeito de Negativa</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Irregularidade de Pagamento</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Irregularidade de Recolhimento e Exigibilidade Suspensa</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Transferência Filial Condição Matriz</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Aguardando Conferência de DIRPJ/DIPJ</td>
+</tr>
+<tr>
+<td>30</td>
+<td>ANR - Aguardando Conferência De DIRPJ/DIPJ</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Extinção da Filial</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Inexistente de Fato ADE/Cosar</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Transferência do Órgão Local a Condição de Filial do Órgão Regional</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Anulação de Inscrição Indevida</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Empresa Estrangeira Aguardando Documentação</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Prática Irregular de Operação de Comércio Exterior</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Baixa de Produtor Rural</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Baixa Deferida pela RFB Aguardando Análise do Convenente</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Baixa Deferida pela RFB e Indeferida Pelo Convenente</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Baixa Indeferida pela RFB e Aguardando Análise do Convenente</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Baixa Indeferida pela RFB e Deferida Pelo Convenente</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Baixa Indeferida pela RFB e Sefin</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Baixa Deferida pela RFB</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Baixa Deferida pela RFB e Sefaz</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Baixa Deferida pela RFB</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Baixa Deferida pela RFB e Sefaz e Indeferida pela Sefin</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Baixa Deferida pela RFB e Sefin e Indeferida pela Sefaz</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Baixa Indeferida pela RFB</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Baixa Indeferida pela RFB</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Baixa Indeferida pela RFB</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Baixa Indeferida pela RFB e Sefaz</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Baixa Indeferida pela RFB</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Baixa Indeferida pela RFB e Sefaz e Deferida pela Sefin</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Baixa - Tratamento Diferenciado Dado às ME e EPP (Lei Complementar Número 123/2006)</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Deferido Pelo Convenente</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Artigo 30</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Indício Interposição Fraudulenta</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Falta de Pluralidade de Sócios</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Omissão de Declarações</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Localização Desconhecida</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Inaptidão</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Registro Cancelado</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Anulação por Não Confirmado Ato de Registro do MEI na Junta Comercial</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Inaptidão (Lei 11.941/2009 Art.54)</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Determinação Judicial</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Omissão Contumaz</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Inconsistência Cadastral</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Baixa Registrada na Junta</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="o-que-e-possivel-saber-com-a-base-cnpj">O que é possível saber com a base CNPJ?</h2>
+<details class="note" open="open">
+<summary>Quais as informações são e não possíveis saber com a base CNPJ?</summary>
+<details class="success" open="open">
+<summary>É possível saber</summary>
+<details class="success">
+<summary>Localização</summary>
+<ul>
+<li>Rua/Avenida;</li>
+<li>Bairro;</li>
+<li>Número do imóvel;</li>
+<li>Cidade;</li>
+<li>Estado;</li>
+<li>País;</li>
+<li>CEP;</li>
+<li>Latitude e Longitude</li>
+</ul>
+</details>
+<details class="success">
+<summary>Contato</summary>
+<ul>
+<li>E-mail;</li>
+<li>Telefone;</li>
+</ul>
+</details>
+<details class="success">
+<summary>Sócio</summary>
+<ul>
+<li>Nome;</li>
+<li>CPF;</li>
+<li>Data de Entrada na Sociedade;</li>
+<li>Faixa etária.</li>
+<li>Sexo</li>
+</ul>
+</details>
+<details class="success">
+<summary>MEI</summary>
+<ul>
+<li>Nome;</li>
+<li>CPF_CRIPTOGRAFADO;</li>
+<li>Sexo</li>
+</ul>
+</details>
+<details class="success">
+<summary>Empresa</summary>
+<ul>
+<li>Nome da Empresa;</li>
+<li>Se é matriz ou filial;</li>
+<li>Situação Cadastral;</li>
+<li>Atividade econômica;</li>
+<li>Capital Social;</li>
+<li>Porte;</li>
+<li>Data de Abertura;</li>
+<li>Data de Cadastro;</li>
+<li>Setor de Atuação.</li>
+</ul>
+</details>
+</details>
+</details>
+<h2 id="potencialidades-e-limitacoes">Potencialidades e Limitações</h2>
+<div class="admonition tip">
+<p class="admonition-title">Potencialidades</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Os dados disponibilizados são referentes à totalidade dos CNPJs cadastrados no território brasileiro;</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Enriquecimento ou validação de dados;  </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Principais dimensões analíticas: Data de Registro, Informações de sócios (data de entrada, CPF, nome,...), capital social, localização, nome fantasia, situação do CNPJ, natureza juridica;</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Identificar sócios e empresas;</li>
+</ul>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Limitações</p>
+<p><img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" title=":x:" /> Não possui dimensões relacionadas a faturamento, número de funcionários, faixa salarial;</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "toc.follow", "navigation.tracking", "search.suggest", "content.code.annotate"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
