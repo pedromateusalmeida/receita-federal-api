@@ -667,40 +667,52 @@
 
 <h2 id="receitacnpjapi">ReceitaCNPJApi</h2>
 <div style="text-align: justify">
-Nessa sessão será explicado o funcionamento da classe ReceitaCNPJApi, uma classe desenvolvida para fazer a extração dos dados de forma distribuída. 
-<br />
-<br />
-O que é a classe ReceitaCNPJApi?
-<br />
-<br />
-Imagine que você deseja acessar as informações da Receita Federal sobre CNPJs. Se você fosse fazer isso manualmente, precisaria ir ao site, pesquisar cada CNPJ um por um, baixar arquivos e até descompactá-los para ver os dados. Parece trabalhoso, certo?
-<br />
-<br />
-Bem, a classe ReceitaCNPJApi é como um assistente pessoal que faz todo esse trabalho para você! Ela foi criada para facilitar o acesso às informações do CNPJ disponíveis na Receita Federal. Em vez de passar por várias etapas manualmente, você pode simplesmente "conversar" com esse assistente e pedir a ele para fazer o trabalho.
-<br />
-<br />
-Como funciona?
-<br />
-<br />
-Dentro dessa classe, existem várias "mini-ferramentas" (que chamamos de métodos). Cada uma dessas ferramentas tem uma função específica. Algumas delas ajudam a baixar arquivos, outras descompactam os arquivos baixados, e algumas até mesmo organizam as informações para você.
-<br />
-<br />
-Por exemplo, se você quiser saber quais são os arquivos disponíveis para baixar, há uma ferramenta que lhe dará uma lista de URLs. Se você quiser baixar um arquivo específico, há outra ferramenta que faz o download e até o descompacta para você.
-<br />
-<br />
-Como eu posso usar?
-<br />
-<br />
-Vamos supor que você queria baixar informações sobre empresas e municípios. Usando essa classe, em vez de ir ao site da Receita Federal, você faria algo assim:
-<br />
-<br />
-Diga à classe que você quer uma lista de URLs de "Empresas" e "Municípios".
-A classe lhe dará essa lista.
-Agora, peça à classe para baixar o arquivo da primeira URL.
-A classe fará isso e ainda descompactará o arquivo para você.
-E é isso! Sem complicações, sem ter que navegar por sites ou lidar com arquivos compactados.
-<br />
+Descrição:<br />
+A ReceitaCNPJApi é uma interface especializada para interagir com a API de Dados Abertos da Receita Federal. Esta classe automatiza várias tarefas relacionadas à obtenção de informações sobre CNPJs, como empresas, sócios e outros <br />detalhes. Ela foi projetada para simplificar a aquisição, descompactação e preparação de dados para análise, removendo a necessidade de interação manual com a API.<br />
 </div>
+
+<div class="admonition warning">
+<p class="admonition-title">A Classe foi desenvolvida para ser utilizada localmente</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Foi implemendo boas práticas para não sobrecarregar servidor entre uma requisição e outra</p>
+</div>
+<p>Métodos:<br /></p>
+<div style="text-align: justify">
+__init__()<br />
+Inicializa a instância da classe e estabelece um sistema de logging para rastrear informações e erros durante as operações.<br />
+
+get_last_month() -> datetime.date<br />
+Descrição: Retorna a data atual do sistema.<br />
+Retorno: Um objeto datetime.date representando a data atual.<br /><br />
+get_output_path_for_prefix(prefix: str) -> str<br />
+Descrição: Constrói um caminho de saída baseado no prefixo fornecido para armazenar arquivos.<br />
+Retorno: Uma string representando o caminho completo de saída para o prefixo especificado.<br /><br />
+get_most_common_date() -> Optional[datetime.date]<br />
+Descrição: Consulta a API para identificar a data mais comum de atualização dos arquivos.<br />
+Retorno: Um objeto datetime.date representando a data mais comum de atualização, ou None se não puder ser determinado.<br /><br />
+lista_urls_receita(*prefixes: str) -> List[str]<br />
+Descrição: Gera uma lista de URLs de download com base nos prefixos fornecidos.<br />
+Retorno: Uma lista de strings contendo URLs completas para os arquivos correspondentes aos prefixos.<br /><br />
+fetch_data(url: str, save_path: str, log_accumulator: Optional[List[str]] = None, max_attempts: int = 15, wait_time: int = 180) -> str<br />
+Descrição: Automatiza o processo de download de um arquivo da URL especificada e o salva no caminho especificado.<br />
+Retorno: Uma string representando o caminho completo do arquivo baixado.<br /><br />
+download_and_unzip(url: str, save_base_path: str = "./temp", output_base_path: str = "./output", headers: Optional[dict] = None, log_accumulator: Optional[List[str]] = None, data_update: bool = True) -> Tuple[str, str]<br />
+Descrição: Combina as operações de download e descompactação, facilitando a obtenção e preparação de arquivos.<br />
+Retorno: Um tuple contendo a URL processada e uma mensagem ("Success" ou a razão da falha).<br /><br />
+unzip_files(zip_file_path: str, output_base_path: str, log_accumulator: Optional[List[str]] = None)<br />
+Descrição: Extrai os conteúdos de um arquivo zip fornecido e os salva no caminho de saída especificado.<br />
+Retorno: Nenhum. A operação modifica o sistema de arquivos para refletir os dados extraídos.<br /><br />
+Atributos:<br />
+
+BASE_URL: A URL base da API de dados abertos da Receita Federal.<br />
+FILE_PREFIXES: Uma lista contendo prefixos dos arquivos que podem ser baixados da API.<br />
+MAX_ATTEMPTS: Um número representando o máximo de tentativas ao fazer uma solicitação para a API.<br />
+WAIT_TIME: Um número que indica o tempo de espera em segundos entre tentativas de solicitação.<br />
+<br />
+Utilizando a classe ReceitaCNPJApi, os desenvolvedores têm uma ferramenta robusta e intuitiva para extrair e processar dados relacionados a CNPJs da Receita Federal sem a necessidade de interação manual ou familiaridade com os detalhes da API subjacente.
+</div>
+
 <div class="admonition info">
 <p class="admonition-title">Para uma análise mais detalhada, consulte a documentação presente na classe.</p>
 </div>
