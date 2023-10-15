@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../lightbox.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -75,6 +77,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#status-atual-do-projeto" class="md-skip">
+          Pular para conteúdo
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -514,6 +521,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Controle de versão e ferramentas no projeto
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -523,6 +541,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#status-atual-do-projeto" class="md-nav__link">
+    Status atual do projeto
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximas-etapas" class="md-nav__link">
+    Próximas etapas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ferramentas" class="md-nav__link">
+    Ferramentas
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -562,6 +618,35 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#status-atual-do-projeto" class="md-nav__link">
+    Status atual do projeto
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximas-etapas" class="md-nav__link">
+    Próximas etapas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ferramentas" class="md-nav__link">
+    Ferramentas
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -580,9 +665,11 @@
 
   <h1>Controle de versão e ferramentas no projeto</h1>
 
+<h2 id="status-atual-do-projeto">Status atual do projeto</h2>
 <table>
 <thead>
 <tr>
+<th>Status</th>
 <th>Versão</th>
 <th>Data da Atualização</th>
 <th>o que foi modificado</th>
@@ -590,6 +677,7 @@
 </thead>
 <tbody>
 <tr>
+<td><span style="color:green;">✔</span></td>
 <td>0.1</td>
 <td>17/10/2023</td>
 <td>Deploy do MVP do projeto, extração, tratamento e análise do MEI</td>
@@ -598,18 +686,22 @@
 <td></td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
 <td></td>
 </tr>
 <tr>
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -618,9 +710,66 @@
 <td><br /></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
+<h2 id="proximas-etapas">Próximas etapas</h2>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Descrição do status</th>
+<th>Versão</th>
+<th>O será implentado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span style="color:orange;">⚙️</span></td>
+<td>Em desenvolvimento</td>
+<td>0.1.1</td>
+<td>Tratramento de dados aplicado a coluna telefone</td>
+</tr>
+<tr>
+<td><span style="color:red;">✘</span></td>
+<td>Backlog</td>
+<td>0.1.2</td>
+<td>Extração e tratamento dos dados relacionados a Lucro Arbitrado, Presumido e Real dos CNPJs</td>
+</tr>
+<tr>
+<td><span style="color:red;">✘</span></td>
+<td>Backlog</td>
+<td>0.2</td>
+<td>Modelo de predição de capital social do MEI</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><br /></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ferramentas">Ferramentas</h2>
 <div class="admonition info">
 <p class="admonition-title">Ferramentas Utilizadas na Versão Atual do Projeto</p>
 <ul>
@@ -680,6 +829,8 @@
     
     
       <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+        <script src="../lightbox.js"></script>
       
     
   </body>
