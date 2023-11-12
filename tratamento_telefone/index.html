@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../schema/">
+        <link rel="prev" href="../tratamento_dados_cnpj/">
       
       
-        <link rel="next" href="../tratamento_dados_cnpj/">
+        <link rel="next" href="../analise_mei/">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Extração dos dados - Projeto extraindo valor dos dados da Receita Federal</title>
+        <title>Tratamento de telefones - Projeto extraindo valor dos dados da Receita Federal</title>
       
     
     
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#receitacnpjapi" class="md-skip">
+        <a href="#breve-historia-da-telefonia-brasileira" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Extração dos dados
+              Tratamento de telefones
             
           </span>
         </div>
@@ -438,27 +438,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Extração dos dados
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../extracao_dados/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -467,45 +449,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Índice">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Índice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#receitacnpjapi" class="md-nav__link">
-    ReceitaCNPJApi
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#script-da-classe" class="md-nav__link">
-    Script da Classe
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exemplo-do-codigo" class="md-nav__link">
-    Exemplo do código
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -535,9 +478,27 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../tratamento_telefone/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Tratamento de telefones
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -546,6 +507,66 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#breve-historia-da-telefonia-brasileira" class="md-nav__link">
+    Breve história da telefonia brasileira
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#telefone-fixa" class="md-nav__link">
+    Telefone Fixa
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#telefone-celular" class="md-nav__link">
+    Telefone Celular
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tabelas-com-ddd-uf-regiao-e-operadora" class="md-nav__link">
+    Tabelas com DDD, UF, Região e Operadora
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxograma-para-tratar-telefone" class="md-nav__link">
+    Fluxograma para tratar telefone
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referências
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -651,22 +672,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#receitacnpjapi" class="md-nav__link">
-    ReceitaCNPJApi
+  <a href="#breve-historia-da-telefonia-brasileira" class="md-nav__link">
+    Breve história da telefonia brasileira
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#script-da-classe" class="md-nav__link">
-    Script da Classe
+  <a href="#telefone-fixa" class="md-nav__link">
+    Telefone Fixa
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exemplo-do-codigo" class="md-nav__link">
-    Exemplo do código
+  <a href="#telefone-celular" class="md-nav__link">
+    Telefone Celular
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tabelas-com-ddd-uf-regiao-e-operadora" class="md-nav__link">
+    Tabelas com DDD, UF, Região e Operadora
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxograma-para-tratar-telefone" class="md-nav__link">
+    Fluxograma para tratar telefone
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referências
   </a>
   
 </li>
@@ -689,103 +731,333 @@
   
 
 
-  <h1>Extração dos dados</h1>
+  <h1>Tratamento de telefones</h1>
 
-<h2 id="receitacnpjapi">ReceitaCNPJApi</h2>
+<p><center>
+<img alt="Image title" src="../mapa_plano_de_numeracao_brasileiro.png" />
+</center></p>
+<h2 id="breve-historia-da-telefonia-brasileira">Breve história da telefonia brasileira</h2>
 <div style="text-align: justify">
-Descrição:<br />
-A ReceitaCNPJApi é uma interface especializada para interagir com a API de Dados Abertos da Receita Federal. Esta classe automatiza várias tarefas relacionadas à obtenção de informações sobre CNPJs, como empresas, sócios e outros <br />detalhes. Ela foi projetada para simplificar a aquisição, descompactação e preparação de dados para análise, removendo a necessidade de interação manual com a API.<br />
+Ter o contato correto de um cliente ou consumidor é fundamental. Por isso, é essencial reduzir ao máximo os ruídos na comunicação para qualquer empresa. Atualmente, existem várias formas de entrar em contato com o consumidor, incluindo endereço residencial ou profissional, e-mail, e telefones fixos e celulares. Neste documento, vou focar nas estratégias de tratamento para telefones fixos e celulares.<br /><br />
+
+Antes de detalhar essas estratégias, é importante contextualizar a história da telefonia no Brasil. Em 27 de agosto de 1962, foi promulgada a Lei 4.117, o Código Brasileiro de Telecomunicações. Essa lei viabilizou a criação do Sistema Nacional de Telecomunicações, em resposta ao crescimento do número de telefones no país, que já ultrapassava 1 milhão de linhas.<br /><br />
+
+Com a evolução tecnológica e o surgimento de novas empresas, a demanda por serviços de telefonia aumentou consideravelmente. A empresa pública responsável pelo setor não conseguia mais atender a essa demanda crescente. Por isso, em 1998, houve a privatização da estatal brasileira de telefonia, marcando um período de expansão significativa nos registros telefônicos. Vale destacar que, já na década de 1990, os primeiros modelos de telefones celulares surgiram, impulsionando o crescimento da telefonia móvel. Esse cenário levou à criação da Agência Nacional de Telecomunicações (ANATEL), responsável por regular as empresas de telecomunicações no país e estabelecer as regras para a composição dos números de telefones fixos e celulares.
+Com o aumento da demanda por números de telefones fixos e móveis, ocorreram diversas mudanças nas regras. Vou destacar algumas dessas mudanças e explicar como as regras atuais podem ser utilizadas para melhorar a qualidade dos nossos contatos telefônicos. <br /><br />
 </div>
 
-<div class="admonition warning">
-<p class="admonition-title">A Classe foi desenvolvida para ser utilizada localmente</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Foi implemendo boas práticas para não sobrecarregar servidor entre uma requisição e outra</p>
-</div>
-<p>Métodos:<br /></p>
+<h2 id="telefone-fixa">Telefone Fixa</h2>
+<p><br /></p>
 <div style="text-align: justify">
-__init__()<br />
-Inicializa a instância da classe e estabelece um sistema de logging para rastrear informações e erros durante as operações.<br />
+Há mais de 30 anos, as linhas de telefone fixo eram compostas por 7 dígitos. Posteriormente, ficou regulamentado que todo telefone fixo iniciaria com 2, 3, 4 ou 5, uma regra que permanece até hoje. Atualmente, a estrutura de um número de telefone fixo é a seguinte: <br /><br />
 
-get_last_month() -> datetime.date<br />
-Descrição: Retorna a data atual do sistema.<br />
-Retorno: Um objeto datetime.date representando a data atual.<br /><br />
-get_output_path_for_prefix(prefix: str) -> str<br />
-Descrição: Constrói um caminho de saída baseado no prefixo fornecido para armazenar arquivos.<br />
-Retorno: Uma string representando o caminho completo de saída para o prefixo especificado.<br /><br />
-get_most_common_date() -> Optional[datetime.date]<br />
-Descrição: Consulta a API para identificar a data mais comum de atualização dos arquivos.<br />
-Retorno: Um objeto datetime.date representando a data mais comum de atualização, ou None se não puder ser determinado.<br /><br />
-lista_urls_receita(*prefixes: str) -> List[str]<br />
-Descrição: Gera uma lista de URLs de download com base nos prefixos fornecidos.<br />
-Retorno: Uma lista de strings contendo URLs completas para os arquivos correspondentes aos prefixos.<br /><br />
-fetch_data(url: str, save_path: str, log_accumulator: Optional[List[str]] = None, max_attempts: int = 15, wait_time: int = 180) -> str<br />
-Descrição: Automatiza o processo de download de um arquivo da URL especificada e o salva no caminho especificado.<br />
-Retorno: Uma string representando o caminho completo do arquivo baixado.<br /><br />
-download_and_unzip(url: str, save_base_path: str = "./temp", output_base_path: str = "./output", headers: Optional[dict] = None, log_accumulator: Optional[List[str]] = None, data_update: bool = True) -> Tuple[str, str]<br />
-Descrição: Combina as operações de download e descompactação, facilitando a obtenção e preparação de arquivos.<br />
-Retorno: Um tuple contendo a URL processada e uma mensagem ("Success" ou a razão da falha).<br /><br />
-unzip_files(zip_file_path: str, output_base_path: str, log_accumulator: Optional[List[str]] = None)<br />
-Descrição: Extrai os conteúdos de um arquivo zip fornecido e os salva no caminho de saída especificado.<br />
-Retorno: Nenhum. A operação modifica o sistema de arquivos para refletir os dados extraídos.<br /><br />
-Atributos:<br />
+•   Código do País: 55<br />
+•   Código de Área: Varia entre 11, 12, 13, 14... até 98, 99<br />
+•   Número do Assinante: Pode ser 2XXX-XXXX; 3XXX-XXXX; 4XXX-XXXX; 5XXX-XXXX<br /><br />
 
-BASE_URL: A URL base da API de dados abertos da Receita Federal.<br />
-FILE_PREFIXES: Uma lista contendo prefixos dos arquivos que podem ser baixados da API.<br />
-MAX_ATTEMPTS: Um número representando o máximo de tentativas ao fazer uma solicitação para a API.<br />
-WAIT_TIME: Um número que indica o tempo de espera em segundos entre tentativas de solicitação.<br />
+Considerando que a utilização dos dígitos 2, 3, 4 e 5 já é uma regra consolidada e não sofreu mudanças significativas, vamos adotar a estrutura acima como padrão para telefones fixos. Portanto, um telefone fixo pode ter 2 dígitos de código de área e do país, e 8 dígitos de número de telefone, totalizando 12 dígitos com o código do país e 10 dígitos sem o código do país. Observação: se considerarmos que o DDD inicia com 0, a quantidade de dígitos varia de 10 para 11.<br /><br />
+</div>
+
+<h2 id="telefone-celular">Telefone Celular</h2>
+<p><br /></p>
+<div style="text-align: justify">
+Para a implementação do nosso tratamento, utilizaremos a base de dados da Receita Federal, que já contém o DDD, mas não inclui o DDI. Portanto, os dígitos referentes ao DDI serão desconsiderados em nossa análise.
+Quanto à numeração de telefones móveis, observamos mudanças mais frequentes, sendo a mais significativa o acréscimo do nono dígito. Anteriormente, os números de celulares começavam com os dígitos 6, 7, 8 e 9. Em São Paulo, especificamente na região do DDD 11, houve um período experimental em que os números de celulares iniciavam com o dígito 5. Durante essa fase, as operadoras Oi, Tim e Vivo comercializaram números com as seguintes sequências: 5700-5768 (Oi), 5787-5799 e 5475-5499 (Tim), 5472-5474 e 5769-5786 (Vivo).<br /><br />
+
+Essa abertura de exceção para o DDD 11 possibilitou a criação de aproximadamente 6,9 milhões de novos números. Antes dessa mudança, a região do DDD 11 já tinha a capacidade para 37 milhões de telefones móveis. Com essa alteração, a capacidade aumentou para até 43,9 milhões de números. Esta medida foi provisória e durou até 2012, quando o nono dígito foi implementado no DDD 11.<br /><br />
+
+O processo de adição do nono dígito em telefones móveis começou em julho de 2012 e foi concluído em novembro de 2016. Segue abaixo o cronograma de implementação por DDDs:<br /><br />
+
+•   29 de julho de 2012: DDD 11<br />
+•   25 de agosto de 2013: DDDs 12, 13, 14, 15, 16, 17, 18 e 19 <br />
+•   27 de outubro de 2013: DDDs 21, 22, 24, 27 e 28 <br />
+•   2 de novembro de 2014: DDDs 91, 92, 93, 94, 95, 96, 97, 98 e 99 <br />
+•   31 de maio de 2015: DDDs 81, 82, 83, 84, 85, 86, 87, 88 e 89 <br />
+•   11 de outubro de 2015: DDDs 31, 32, 33, 34, 35, 37, 38, 71, 73, 74, 75, 77, 79 <br />
+•   29 de maio de 2016: DDDs 61, 62, 63, 64, 65, 66, 67, 68 e 69 <br />
+•   6 de novembro de 2016: DDDs 41, 42, 43, 44, 45, 46, 47, 48, 49, 51, 53, 54, 55 <br /><br />
+
+Com essas alterações, os números de telefone celular passaram a ter a seguinte composição:<br />
 <br />
-Utilizando a classe ReceitaCNPJApi, os desenvolvedores têm uma ferramenta robusta e intuitiva para extrair e processar dados relacionados a CNPJs da Receita Federal sem a necessidade de interação manual ou familiaridade com os detalhes da API subjacente.
+
+•   Código do País: 55<br />
+•   Código de Área (DDD): Varia entre 11, 12, 13, 14... até 98, 99<br />
+•   Número do Assinante: 9XXXX-XXXX<br /><br />
 </div>
 
-<div class="admonition info">
-<p class="admonition-title">Para uma análise mais detalhada, consulte a documentação presente na classe.</p>
+<div class="admonition note">
+<p class="admonition-title">Portabilidade</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Telefonia Fixa</label><label for="__tabbed_1_2">Telefonia Móvel</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> Com a portabilidade, os usuários podem manter seus números ao mudar de localização ou operadora dentro da mesma área de serviço, o que alterou a relação direta que existia entre o número de telefone e a localização geográfica ou operadora.</p>
 </div>
-<h2 id="script-da-classe">Script da Classe</h2>
-<p><a class="md-button md-button--primary" href="https://github.com/pedromateusalmeida/receita-federal-api/blob/main/ReceitaCNPJApi.py">ReceitaCNPJApi</a> <a class="md-button md-button--primary" href="https://github.com/pedromateusalmeida/receita-federal-api/blob/main/Teste_das_classes.ipynb">Teste da Classe</a></p>
-<h2 id="exemplo-do-codigo">Exemplo do código</h2>
-<pre><code class="language-python">from ReceitaCNPJApi import ReceitaCNPJApi
-from concurrent.futures import ThreadPoolExecutor
+<div class="tabbed-block">
+<p><img alt="☑" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2611.svg" title=":ballot_box_with_check:" /> Em 2007, foi introduzido a portabilidade de números entre operadoras de telefonia móvel. O objetivo dessa ação era permitir que os usuários mantivessem seus números ao trocar de operadora, incentivando a competição.</p>
+</div>
+</div>
+</div>
+</div>
+<div style="text-align: justify">
+Um cadastro antigo pode apresentar números de celular com 10 dígitos (sendo 2 de DDD e 8 do celular) ou 11 dígitos (3 de DDD e 8 do celular). Após 2016, todos os estados passaram a adotar celulares com 11 ou 12 dígitos, ou seja, 2 ou 3 dígitos de DDD e 9 dígitos do número do celular. <br /><br />
 
+Diante das regras para telefones fixos e celulares, identificamos nosso primeiro desafio: a quantidade de dígitos de um telefone fixo ou móvel, em um determinado período, era a mesma. Além disso, durante cerca de 2 a 3 anos, a região com DDD 11 teve números de celular iniciando com o dígito 5. <br /><br />
 
-api = ReceitaCNPJApi()
-# Pode ser uma tabela ou varias
-urls = api.lista_urls_receita('Municipios')
-urls = api.lista_urls_receita('Municipios', 'Cnaes', 
-                              'Naturezas', 'Qualificacoes', 'Paises','Motivos')
+Quantas combinações podemos em um telefone sabendo as variações existente e que pode ter ou não o DDI e o DDD. Esse é um problema de análise combinatória. Temos duas possibilidades para DDI e DDD, para telefone celular duas possibilidade e fixo uma possibilidade. Abaixo temos um desenho exemplificando a situação<br /><br />
+</div>
 
-def process_url(url):
-    return api.download_and_unzip(url)
+<p><center>
+<img alt="Image title" src="../possibilidade_digitos.PNG" />
+</center></p>
+<div style="text-align: justify">
+Um dos primeiros tratamentos a serem realizados é a seleção dos números por meio de expressões regulares (regex), eliminando caracteres especiais como hífen e espaços. Se a coluna de DDD estiver separada do número, isso facilitará o processo, pois, em cadastros desatualizados, a regra de que telefones fixos iniciam com 2 a 5 e móveis com 6 a 9 ajudará a identificar se o telefone é fixo ou móvel. Para o DDD 11, aplicaremos uma validação especial, verificando se o início do número está dentro das seguintes faixas: 5700-5768 (Oi), 5787-5799 e 5475-5499 (Tim), 5472-5474 e 5769-5786 (Vivo).<br /><br />
 
-# Mais do 3 aconteceu de tomar timeout. Sugiro manter
-with ThreadPoolExecutor(max_workers=3) as executor:  
+A questão que surge é: como validar um telefone celular no contexto atual, onde os números incluem o DDD mais 9 dígitos? As operadoras de telefonia operam em diferentes bandas, identificáveis pelos primeiros dígitos do número. Abaixo, estão as regras correspondentes a cada banda:<br /><br />
 
-    results = list(executor.map(process_url, urls))
+•   Banda A: 96 a 99<br />
+•   Banda B: 91 a 94<br />
+•   Banda D: 8<br />
+•   Banda E: 8 <br />
+•   Banda L: 8 <br /><br />
+Existem algumas exceções: <br /> <br />
 
-for url, result in zip(urls, results):
-    print(f&quot;Result for {url}: {result[1]}&quot;)
-</code></pre>
-<p>Output</p>
-<pre><code class="language-python">INFO:ReceitaCNPJApi:Trying to unzip ./temp\Naturezas.zip
-INFO:ReceitaCNPJApi:File https://dadosabertos.rfb.gov.br/CNPJ/Naturezas.zip has been unzipped successfully to ./output
-INFO:ReceitaCNPJApi:Trying to unzip ./temp\Cnaes.zip
-INFO:ReceitaCNPJApi:File https://dadosabertos.rfb.gov.br/CNPJ/Cnaes.zip has been unzipped successfully to ./output
-INFO:ReceitaCNPJApi:Trying to unzip ./temp\Municipios.zip
-INFO:ReceitaCNPJApi:File https://dadosabertos.rfb.gov.br/CNPJ/Municipios.zip has been unzipped successfully to ./output
-INFO:ReceitaCNPJApi:Trying to unzip ./temp\Qualificacoes.zip
-INFO:ReceitaCNPJApi:File https://dadosabertos.rfb.gov.br/CNPJ/Qualificacoes.zip has been unzipped successfully to ./output
-INFO:ReceitaCNPJApi:Trying to unzip ./temp\Paises.zip
-INFO:ReceitaCNPJApi:File https://dadosabertos.rfb.gov.br/CNPJ/Paises.zip has been unzipped successfully to ./output
-INFO:ReceitaCNPJApi:Trying to unzip ./temp\Motivos.zip
-INFO:ReceitaCNPJApi:File https://dadosabertos.rfb.gov.br/CNPJ/Motivos.zip has been unzipped successfully to ./output
-Result for https://dadosabertos.rfb.gov.br/CNPJ/Municipios.zip: Success
-Result for https://dadosabertos.rfb.gov.br/CNPJ/Cnaes.zip: Success
-Result for https://dadosabertos.rfb.gov.br/CNPJ/Naturezas.zip: Success
-Result for https://dadosabertos.rfb.gov.br/CNPJ/Qualificacoes.zip: Success
-Result for https://dadosabertos.rfb.gov.br/CNPJ/Paises.zip: Success
-Result for https://dadosabertos.rfb.gov.br/CNPJ/Motivos.zip: Success
-</code></pre>
+•   Nextel utiliza a série que começa com 7. <br />
+•   Vivo em São Paulo também utiliza a série 7 (71 a 74) e a 95. <br />
+•   Vivo no Rio de Janeiro utiliza a série 95. <br />
+•   Claro no Distrito Federal utiliza a série 95. <br /><br />
+</div>
+<div class="admonition note">
+<p class="admonition-title">Atuação das operadoras por Banda*</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Bandas de atuação por operadora</label><label for="__tabbed_2_2">Exceções</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Estado (DDD)</th>
+<th>Banda A (96 a 99)</th>
+<th>Banda B (91 a 94)</th>
+<th>Banda D (8)</th>
+<th>Banda E (8)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RJ, ES (21 a 28)</td>
+<td>Vivo</td>
+<td>Claro</td>
+<td>Oi 87 a 88</td>
+<td>TIM 80 a 83</td>
+</tr>
+<tr>
+<td>Amazônia (91 a 99)</td>
+<td>Amazônia Celular</td>
+<td>Vivo</td>
+<td>Oi 87 a 88</td>
+<td>TIM 80 a 83</td>
+</tr>
+<tr>
+<td>MG (31 a 38)</td>
+<td>Telemig Celular</td>
+<td>TIM</td>
+<td>Oi 87 a 88</td>
+<td>Claro 81 a 84</td>
+</tr>
+<tr>
+<td>BA, SE (71 a 79)</td>
+<td>Vivo</td>
+<td>TIM</td>
+<td>Oi 87 a 88</td>
+<td>Claro 81 a 83</td>
+</tr>
+<tr>
+<td>Nordeste (81 a 89)</td>
+<td>TIM</td>
+<td>Claro</td>
+<td>Oi 87 a 88</td>
+<td>Vivo</td>
+</tr>
+<tr>
+<td>PR, SC (41 a 49)</td>
+<td>TIM</td>
+<td>Vivo</td>
+<td>Claro 87 a 88</td>
+<td>Brasil Telecom 84 a 85</td>
+</tr>
+<tr>
+<td>RS (51 a 55)</td>
+<td>Vivo</td>
+<td>Claro</td>
+<td>TIM 81 a 82</td>
+<td>Brasil Telecom 84 a 85</td>
+</tr>
+<tr>
+<td>Centro Oeste (61 a 69)</td>
+<td>Vivo</td>
+<td>Claro</td>
+<td>TIM 81 a 82</td>
+<td>Brasil Telecom 84 a 85</td>
+</tr>
+<tr>
+<td>SP (11 a 19)</td>
+<td>Vivo*</td>
+<td>Claro*</td>
+<td>TIM 81 a 87</td>
+<td>Oi</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Operadora</th>
+<th>Cidades</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TIM</td>
+<td>São Paulo (6340-6369, 7011-7051 e 7950-7967)</td>
+</tr>
+<tr>
+<td>TIM</td>
+<td>Pelotas e região RGS (9911-9939)</td>
+</tr>
+<tr>
+<td>TIM</td>
+<td>Londrina e Tamarana, PR, área 43 (81)</td>
+</tr>
+<tr>
+<td>TIM</td>
+<td>Nordeste (8719-8721 e 88)</td>
+</tr>
+<tr>
+<td>Claro</td>
+<td>São Paulo (6310-6339, 6589-6599, 7052-7062, 76, 8800-8899, 89, 91, 92, 93 e 94)</td>
+</tr>
+<tr>
+<td>Claro</td>
+<td>Rio de Janeiro (74, 75 e 76)</td>
+</tr>
+<tr>
+<td>Claro</td>
+<td>Centro Oeste (9551-9559 e 9981-9989)</td>
+</tr>
+<tr>
+<td>Claro</td>
+<td>Amazônia (84)</td>
+</tr>
+<tr>
+<td>Vivo</td>
+<td>São Paulo (6057-6060, 6193-6199, 6370-6499, 7099, 71, 72, 73, 74, 75, 95)</td>
+</tr>
+<tr>
+<td>Vivo</td>
+<td>Rio de Janeiro (71, 72 e 95)</td>
+</tr>
+<tr>
+<td>Vivo</td>
+<td>RGS (95)</td>
+</tr>
+<tr>
+<td>Vivo</td>
+<td>Nordeste (8100-82000)</td>
+</tr>
+<tr>
+<td>Oi</td>
+<td>São Paulo (6100-6193, 6299, 65, 6651-6799, 68, 6999, 7971-7999, 80 e 8814-8899)</td>
+</tr>
+<tr>
+<td>Oi</td>
+<td>Rio de Janeiro (84, 85, 86 e 89)</td>
+</tr>
+<tr>
+<td>Oi</td>
+<td>Minas Gerais (85, 86 e 89)</td>
+</tr>
+<tr>
+<td>Oi</td>
+<td>Nordeste (84, 85 e 86)</td>
+</tr>
+<tr>
+<td>Oi</td>
+<td>BA e SE (86)</td>
+</tr>
+<tr>
+<td>BrT</td>
+<td>Centro Oeste (86)</td>
+</tr>
+<tr>
+<td>Algar</td>
+<td>Minas Gerais (96, 9960-9979 e 9991-9999)</td>
+</tr>
+<tr>
+<td>Algar</td>
+<td>São Paulo (99, onde a Vivo não está)</td>
+</tr>
+<tr>
+<td>Algar</td>
+<td>Centro Oeste (99, onde a Vivo não está)</td>
+</tr>
+<tr>
+<td>Sercomtel</td>
+<td>Londrina e Tamarana, PR (9941-9998)</td>
+</tr>
+<tr>
+<td>Unicel</td>
+<td>São Paulo (7900-7949)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div style="text-align: justify">
+<center>
+* A tabela acima não esta atualiza, pois a Oi móvel não existe mais.
+</center>
+</div>
+
+<p><br /></p>
+<div style="text-align: justify">
+É importante destacar que, em dezembro de 2020, ocorreu o leilão da Oi Móvel, evento significativo no setor de telecomunicações. As operadoras Vivo, Claro e Tim foram as principais adquirentes da infraestrutura móvel da Oi. Até o final de outubro e início de novembro de 2023, o processo de transição de clientes, infraestrutura e outros ativos adquiridos por essas empresas foi finalizado. Portanto, a tabela anteriormente fornecida está desatualizada.<br /> <br />
+
+Atualmente, as empresas de telecomunicações operam com base em bandas específicas e, dentro dessas bandas, possuem uma faixa numérica específica para criar números de telefone. Esta faixa é definida pelos primeiros 5 dígitos do número. Por exemplo, uma operadora que opera na faixa entre 99941-99998 pode criar números como 99942-8621, 99998-8542, 99968-2465, entre outros milhares de combinações.<br /> <br />
+
+Para informações atualizadas sobre DDDs e as frequências numéricas em que cada operadora atua, o site https://www.teleco.com.br/num_cel.asp é uma fonte valiosa. Essas informações, obtidas da ANATEL, são públicas. Continuo na busca por esses dados em fontes oficiais e já entrei em contato com a Agência para automatizar esse processo, dada a utilidade e riqueza dessa informação.<br /> <br />
+
+Elaborei uma tabela completa com todas as possibilidades de números de telefone de todas as operadoras, incluindo identificação por estado e região. É importante notar que esta tabela não inclui a extinta Oi Móvel. <br /> <br />
+</div>
+
+<h2 id="tabelas-com-ddd-uf-regiao-e-operadora">Tabelas com DDD, UF, Região e Operadora</h2>
+<p><br />
+<a class="md-button md-button--primary" href="https://github.com/pedromateusalmeida/receita-federal-api/tree/main">TABELAS PARA VALIDAÇÃO DE TELEFONE</a>
+<br />
+<br /></p>
+<div style="text-align: justify">
+Dado a contextualização vamos aos tratamentos aplicados utilizando Pyspark. Os dados utilizados aqui no tratamento como exemplo são dos MEIs disponibilizados pela Receita Federal. <br /> <br />
+</div>
+
+<h2 id="fluxograma-para-tratar-telefone">Fluxograma para tratar telefone</h2>
+<p><a class="md-button md-button--primary" href="../postagem_tratamento_telefone.drawio">Fluxograma para tratar telefone</a>
+<br /></p>
+<h2 id="referencias">Referências</h2>
+<p><a href="https://smdsolucoes.com.br/historia-da-telefonia-no-brasil/">História da Telefonia no Brasil - SMD Soluções</a><br />
+<a href="https://www.oi.com.br/lp/o-que-muda-oi-movel/?utm_source=blog_oi_e&utm_medium=hiperlink_home_post127&utm_campaign=categoria_mundo_oi">O que muda na Oi Móvel - Oi</a><br />
+<a href="https://informacoes.anatel.gov.br/legislacao/resolucoes/2022/1641-resolucao-749">Resolução 749 da ANATEL</a><br />
+<a href="https://www.gov.br/anatel/pt-br/regulado/numeracao/tabela-servico-telefonico-fixo-comutado">Tabela de Serviço Telefônico Fixo Comutado - ANATEL</a><br />
+<a href="https://www.gov.br/anatel/pt-br/regulado/numeracao/plano-de-numeracao-brasileiro">Plano de Numeração Brasileiro - ANATEL</a><br />
+<a href="https://www.gov.br/anatel/pt-br/regulado/numeracao/tabela-servico-movel-celular">Tabela de Serviço Móvel Celular - ANATEL</a><br />
+<a href="https://www.teleco.com.br/num_cel.asp">Numeração de Celulares no Brasil - Teleco</a><br />
+<a href="https://pt.wikipedia.org/wiki/N%C3%BAmeros_de_telefone_no_Brasil">Números de Telefone no Brasil - Wikipedia</a><br />
+<a href="https://www.nvoip.com.br/blog/prefixos-e-sufixos-da-telefonia-brasileira/">Prefixos e Sufixos da Telefonia Brasileira - Nvoip</a><br />
+<a href="https://informacoes.anatel.gov.br/paineis/areas-tarifarias">Áreas Tarifárias - ANATEL</a><br />
+<a href="https://www.gov.br/anatel/pt-br/regulado/numeracao/codigos-nacionais/servicos-de-utilidade-publica-e-de-emergencia">Códigos Nacionais de Serviços de Utilidade Pública e de Emergência - ANATEL</a><br />
+<a href="https://www.anatel.gov.br/Portal/exibirPortalNivelDois.do?org.apache.struts.taglib.html.TOKEN=80ce370e1bd1228e95bcf62ae855843c&acao=carregaCombos&codItemCanal=1746&nomeVisao=Cidad%E3o&nomeCanal=Nono+D%EDgito&nomeItemCanal=&nomePastaSelecionada=Perguntas+Frequentes&nomePastaNivelDoisSelecionada=&pastaSelecionada=2862&conjuntoPalavrasPesquisa=&pastaSelecionadaCopia=&especieSelecionadaCopia=&especialidadeSelecionadaCopia=&palavraCopia=&numeroCopia=&mesCopia=&anoCopia=/#topo">Informações sobre o Nono Dígito - ANATEL</a><br />
+<a href="https://informacoes.anatel.gov.br/paineis/areas-tarifarias">Painel de Áreas Tarifárias - ANATEL</a><br /></p>
 
 
 
