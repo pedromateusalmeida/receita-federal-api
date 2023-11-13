@@ -536,8 +536,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#servico-telefonico-fixo-comutado" class="md-nav__link">
+    Serviço Telefônico Fixo Comutado
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#telefone-celular" class="md-nav__link">
     Telefone Celular
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxograma-para-tratar-telefone" class="md-nav__link">
+    Fluxograma para tratar telefone
   </a>
   
 </li>
@@ -550,8 +564,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fluxograma-para-tratar-telefone" class="md-nav__link">
-    Fluxograma para tratar telefone
+  <a href="#tratamento-do-telefone-da-base-da-receita-federal" class="md-nav__link">
+    Tratamento do telefone da base da Receita Federal
   </a>
   
 </li>
@@ -686,8 +700,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#servico-telefonico-fixo-comutado" class="md-nav__link">
+    Serviço Telefônico Fixo Comutado
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#telefone-celular" class="md-nav__link">
     Telefone Celular
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxograma-para-tratar-telefone" class="md-nav__link">
+    Fluxograma para tratar telefone
   </a>
   
 </li>
@@ -700,8 +728,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fluxograma-para-tratar-telefone" class="md-nav__link">
-    Fluxograma para tratar telefone
+  <a href="#tratamento-do-telefone-da-base-da-receita-federal" class="md-nav__link">
+    Tratamento do telefone da base da Receita Federal
   </a>
   
 </li>
@@ -758,6 +786,52 @@ Há mais de 30 anos, as linhas de telefone fixo eram compostas por 7 dígitos. P
 Considerando que a utilização dos dígitos 2, 3, 4 e 5 já é uma regra consolidada e não sofreu mudanças significativas, vamos adotar a estrutura acima como padrão para telefones fixos. Portanto, um telefone fixo pode ter 2 dígitos de código de área e do país, e 8 dígitos de número de telefone, totalizando 12 dígitos com o código do país e 10 dígitos sem o código do país. Observação: se considerarmos que o DDD inicia com 0, a quantidade de dígitos varia de 10 para 11.<br /><br />
 </div>
 
+<h2 id="servico-telefonico-fixo-comutado">Serviço Telefônico Fixo Comutado</h2>
+<p><br /></p>
+<div style="text-align: justify">
+Sistema Telefônico Fixo Comutado é o sistema público convencional de comunicação de voz, que interliga empresas e residências em âmbito nacional e internacional. É a expressão equivalente para a Public Switched Telephony Network da língua inglesa.Abaixo temos a tabela que representa o padrão brasileiro:<br /><br />
+</div>
+
+<table>
+<thead>
+<tr>
+<th>CNG</th>
+<th>CÓDIGO DE ÁREA</th>
+<th>SERVIÇO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 800 ABC MCDU</td>
+<td>TODAS AS ÁREAS</td>
+<td>CHAMADAS FRANQUEADAS</td>
+</tr>
+<tr>
+<td>0 300 ABC MCDU</td>
+<td>TODAS AS ÁREAS</td>
+<td>CHAMADAS COM TARIFA COMPARTILHADA</td>
+</tr>
+<tr>
+<td>0 500 ABC MCDU</td>
+<td>TODAS AS ÁREAS</td>
+<td>CHAMADAS PARA DOAÇÕES A INSTITUIÇÕES DE UTILIDADE PÚBLICA</td>
+</tr>
+<tr>
+<td>0 900 ABC MCDU</td>
+<td>TODAS AS ÁREAS</td>
+<td>SERVIÇOS DE VALOR ADICIONADO</td>
+</tr>
+<tr>
+<td><br /></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: justify">
+Essa numeração possui 11 digitos, portanto importante realizarmos um tratamento para a remoção desses números da base de telefone.<br />
+</div>
+
 <h2 id="telefone-celular">Telefone Celular</h2>
 <p><br /></p>
 <div style="text-align: justify">
@@ -810,7 +884,7 @@ Quantas combinações podemos em um telefone sabendo as variações existente e 
 <img alt="Image title" src="../possibilidade_digitos.PNG" />
 </center></p>
 <div style="text-align: justify">
-Um dos primeiros tratamentos a serem realizados é a seleção dos números por meio de expressões regulares (regex), eliminando caracteres especiais como hífen e espaços. Se a coluna de DDD estiver separada do número, isso facilitará o processo, pois, em cadastros desatualizados, a regra de que telefones fixos iniciam com 2 a 5 e móveis com 6 a 9 ajudará a identificar se o telefone é fixo ou móvel. Para o DDD 11, aplicaremos uma validação especial, verificando se o início do número está dentro das seguintes faixas: 5700-5768 (Oi), 5787-5799 e 5475-5499 (Tim), 5472-5474 e 5769-5786 (Vivo).<br /><br />
+Um dos tratamentos a serem realizados é a seleção dos números por meio de expressões regulares (regex), eliminando caracteres especiais como hífen e espaços. Se a coluna de DDD estiver separada do número, isso facilitará o processo, pois, em cadastros desatualizados, a regra de que telefones fixos iniciam com 2 a 5 e móveis com 6 a 9 ajudará a identificar se o telefone é fixo ou móvel. Para o DDD 11, aplicaremos uma validação especial, verificando se o início do número está dentro das seguintes faixas: 5700-5768 (Oi), 5787-5799 e 5475-5499 (Tim), 5472-5474 e 5769-5786 (Vivo).<br /><br />
 
 A questão que surge é: como validar um telefone celular no contexto atual, onde os números incluem o DDD mais 9 dígitos? As operadoras de telefonia operam em diferentes bandas, identificáveis pelos primeiros dígitos do número. Abaixo, estão as regras correspondentes a cada banda:<br /><br />
 
@@ -1032,18 +1106,26 @@ Para informações atualizadas sobre DDDs e as frequências numéricas em que ca
 Elaborei uma tabela completa com todas as possibilidades de números de telefone de todas as operadoras, incluindo identificação por estado e região. É importante notar que esta tabela não inclui a extinta Oi Móvel. <br /> <br />
 </div>
 
+<h2 id="fluxograma-para-tratar-telefone">Fluxograma para tratar telefone</h2>
+<p><br />
+<a class="md-button md-button--primary" href="../postagem_tratamento_telefone.drawio">Fluxograma para tratar telefone</a>
+<br />
+Obs: Diagrama no formato drawio</p>
 <h2 id="tabelas-com-ddd-uf-regiao-e-operadora">Tabelas com DDD, UF, Região e Operadora</h2>
 <p><br />
-<a class="md-button md-button--primary" href="https://github.com/pedromateusalmeida/receita-federal-api/tree/main">TABELAS PARA VALIDAÇÃO DE TELEFONE</a>
+<a class="md-button md-button--primary" href="https://github.com/pedromateusalmeida/receita-federal-api/tree/main">TABELAS PARA VALIDAÇÃO DE TELEFONE</a></p>
+<div style="text-align: justify">
+Exemplo de tabela:
+</div>
+<p><img alt="Alt text" src="../tabela_operadora_frequencia_ddd.PNG" />
 <br />
 <br /></p>
+<h2 id="tratamento-do-telefone-da-base-da-receita-federal">Tratamento do telefone da base da Receita Federal</h2>
+<p><br /></p>
 <div style="text-align: justify">
-Dado a contextualização vamos aos tratamentos aplicados utilizando Pyspark. Os dados utilizados aqui no tratamento como exemplo são dos MEIs disponibilizados pela Receita Federal. <br /> <br />
+Dado a contextualização vamos aos tratamentos aplicados utilizando Pyspark. Os dados utilizados aqui no tratamento como exemplo são dos MEIs disponibilizados pela Receita Federal. E foi utilizado o pyspark como ferramenta de tratamento de dados. Abaixo link para o script de tratamento <br /> <br />
 </div>
-
-<h2 id="fluxograma-para-tratar-telefone">Fluxograma para tratar telefone</h2>
-<p><a class="md-button md-button--primary" href="../postagem_tratamento_telefone.drawio">Fluxograma para tratar telefone</a>
-<br /></p>
+<p><a class="md-button md-button--primary" href="https://github.com/pedromateusalmeida/receita-federal-api/blob/main/tratamento_telefone_mei.ipynb">TRATAMENTO TELEFONE</a></p>
 <h2 id="referencias">Referências</h2>
 <p><a href="https://smdsolucoes.com.br/historia-da-telefonia-no-brasil/">História da Telefonia no Brasil - SMD Soluções</a><br />
 <a href="https://www.oi.com.br/lp/o-que-muda-oi-movel/?utm_source=blog_oi_e&utm_medium=hiperlink_home_post127&utm_campaign=categoria_mundo_oi">O que muda na Oi Móvel - Oi</a><br />
