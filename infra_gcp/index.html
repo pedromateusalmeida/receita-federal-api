@@ -13,8 +13,10 @@
       
       
       
-        <link rel="prev" href="../versionamento_projeto/">
+        <link rel="prev" href="../analise_mei/">
       
+      
+        <link rel="next" href="../privacidade_de_dados/">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -22,7 +24,7 @@
     
     
       
-        <title>Implementando em nuvem - Projeto extraindo valor dos dados da Receita Federal</title>
+        <title>Disponibilização dos dados em Nuvem - Projeto extraindo valor dos dados da Receita Federal</title>
       
     
     
@@ -75,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#sobre-a-implementacao" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -111,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Implementando em nuvem
+              Disponibilização dos dados em Nuvem
             
           </span>
         </div>
@@ -483,6 +490,99 @@
                 
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Disponibilização dos dados em Nuvem
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Disponibilização dos dados em Nuvem
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sobre-a-implementacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sobre a implementação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desenho-da-arquitetura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desenho da arquitetura
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codigos-para-implementar-no-gcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Códigos para implementar no GCP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infra:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
@@ -521,35 +621,6 @@
 
               
             
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Implementando em nuvem
-  </span>
-  
-
-      </a>
-      
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -575,6 +646,50 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sobre-a-implementacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sobre a implementação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desenho-da-arquitetura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desenho da arquitetura
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codigos-para-implementar-no-gcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Códigos para implementar no GCP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infra:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -591,9 +706,34 @@
   
 
 
-  <h1>Implementando em nuvem</h1>
+  <h1>Disponibilização dos dados em Nuvem</h1>
 
+<h2 id="sobre-a-implementacao">Sobre a implementação</h2>
+<div style="text-align: justify">
+Um amigo me questionou sobre as classes estarem disponíveis localmente, sendo que atualmente trabalhamos exclusivamente na nuvem. Achei a observação dele muito pertinente e percebi que seria extremamente importante escolher uma plataforma de nuvem, adaptar o código, implementar e, finalmente, disponibilizar os dados para que qualquer pessoa da organização possa acessá-los.<br /><br />
 
+Para implementar tal processo na nuvem, escolhi o Google Cloud Platform. A seguir, apresento a arquitetura que desenhei. É importante destacar que a implementação abrange apenas a extração e o carregamento (Extract and Load) dos dados em um Data Warehouse. O processo de Tratamento e Limpeza será abordado em outra ocasião. Pretendo desenvolver na nuvem com PySpark, adaptando o que já tenho localmente, e implementar o mesmo tratamento utilizando SQL no BigQuery. O objetivo é apresentar algumas alternativas para realizar a etapa de Tratamento e Limpeza dos dados.<br /><br />
+
+Outro ponto importante a ser observado é a orquestração. Neste primeiro momento, o objetivo é garantir a disponibilidade dos dados para que profissionais de ciência de dados, análise de dados e pessoas de negócios que possuam conhecimento em SQL, possam utilizá-los. Portanto, a orquestração será discutida em outro tópico.<br />
+</div>
+
+<h2 id="desenho-da-arquitetura">Desenho da arquitetura</h2>
+<p><center>
+<a href="../arquitetura_gcp.png?data-lightbox=" title="image-1&quot; data-title=&quot;My caption"><img alt="Image title" src="../arquitetura_gcp.png" /></a>
+Arquitetura GCP
+</center></p>
+<p>Vale lembrar que é de suma importância a criação de um bucket no storage e de um conjunto de dados no Bigquery. Abaixo o print com exemplos:<br />
+<center>
+<img alt="Image title" src="../storage.png" /><br />
+Storage
+</center></p>
+<p><center>
+<img alt="Image title" src="../bigquery.png" /><br />
+Bigquery
+</center></p>
+<h2 id="codigos-para-implementar-no-gcp">Códigos para implementar no GCP</h2>
+<p><a class="md-button md-button--primary" href="https://github.com/pedromateusalmeida/receita-federal-api/tree/main/scripts-spark-gcp">Scripts GCP</a> </p>
+<h2 id="infra">Infra:</h2>
 
 
 
