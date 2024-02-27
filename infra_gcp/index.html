@@ -759,7 +759,7 @@ Um amigo me questionou sobre as classes estarem disponíveis localmente, sendo q
 
 Para implementar tal processo na nuvem, escolhi o Google Cloud Platform. A seguir, apresento a arquitetura que desenhei. É importante destacar que a implementação abrange apenas a extração e o carregamento (Extract and Load) dos dados em um Data Warehouse. O processo de Tratamento e Limpeza será abordado em outra ocasião. Pretendo desenvolver na nuvem com PySpark, adaptando o que já tenho localmente, e implementar o mesmo tratamento utilizando SQL no BigQuery. O objetivo é apresentar algumas alternativas para realizar a etapa de Tratamento e Limpeza dos dados.<br /><br />
 
-Outro ponto importante a ser observado é a orquestração. Neste primeiro momento, o objetivo é garantir a disponibilidade dos dados para que profissionais de ciência de dados, análise de dados e pessoas de negócios que possuam conhecimento em SQL, possam utilizá-los. Portanto, a orquestração será discutida em outro tópico.<br />
+Outro ponto importante a ser observado é a orquestração que foi implementada utilizando a ferramenta: Cloud Composer. Essa ferramenta permite subir um servidor de Airflow e nele orquestrar os scripts. Neste primeiro momento, o objetivo é garantir a disponibilidade dos dados para que profissionais de ciência de dados, análise de dados e pessoas de negócios que possuam conhecimento em SQL, possam utilizá-los.<br />
 </div>
 
 <h2 id="desenho-da-arquitetura">Desenho da arquitetura</h2>
