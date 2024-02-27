@@ -11,6 +11,13 @@ from io import BytesIO
 from pyspark.sql import SparkSession
 import io
 
+import logging
+from pyspark.sql.types import StructType, StructField, StringType, IntegerType, FloatType
+from pyspark.sql.functions import regexp_replace, when,length,to_date,upper,lower,col,split,explode,coalesce,concat_ws,concat,lit,broadcast,regexp_extract,month,year,to_date
+from pyspark.sql.functions import broadcast,expr,udf
+from pyspark.sql.types import *
+from functools import reduce
+
 class ReceitaCNPJApiGCP:
     """
     Classe para interagir com a API de Dados Abertos da Receita Federal e salvar diretamente no Google Cloud Storage (GCS).
@@ -51,7 +58,7 @@ class ReceitaCNPJApiGCP:
     BASE_URL = "https://dadosabertos.rfb.gov.br/CNPJ"
     FILE_PREFIXES = ['Estabelecimentos', 'Municipios', 'Simples', 'Empresas', 'Cnaes', 'Socios', 'Naturezas', 'Qualificacoes', 'Paises', 'Motivos']
 
-    def __init__(self, bucket_name, data_update=True, max_attempts=15, wait_time=150):
+    def __init__(self, bucket_name, data_update=True, max_attempts=15, wait_time=180):
         """
         Inicializa a classe com configurações para interação com a API da Receita Federal e o Google Cloud Storage.
 
@@ -178,7 +185,7 @@ class ReceitaCNPJApiGCP:
 
 if __name__ == "__main__":
     bucket_name = "projeto-dados-receita-federal"
-    api = ReceitaCNPJApiGCP(bucket_name=bucket_name, data_update=True, max_attempts=15, wait_time=150)
+    api = ReceitaCNPJApiGCP(bucket_name=bucket_name, data_update=True, max_attempts=15, wait_time=180)
     prefix = prefix = ['Municipios', 'Cnaes', 'Naturezas', 'Simples', 'Qualificacoes', 'Paises', 'Motivos']
     for i in prefix:
         urls = api.lista_urls_receita(f'{i}')
@@ -187,7 +194,7 @@ if __name__ == "__main__":
 # Exemplo de uso
 if __name__ == "__main__":
     bucket_name = "projeto-dados-receita-federal"
-    api = ReceitaCNPJApiGCP(bucket_name=bucket_name, data_update=True, max_attempts=15, wait_time=150)
+    api = ReceitaCNPJApiGCP(bucket_name=bucket_name, data_update=True, max_attempts=15, wait_time=180)
     prefix = prefix = ['Socios']
     for i in prefix:
         urls = api.lista_urls_receita(f'{i}')
@@ -196,7 +203,7 @@ if __name__ == "__main__":
 # Exemplo de uso
 if __name__ == "__main__":
     bucket_name = "projeto-dados-receita-federal"
-    api = ReceitaCNPJApiGCP(bucket_name=bucket_name, data_update=True, max_attempts=15, wait_time=150)
+    api = ReceitaCNPJApiGCP(bucket_name=bucket_name, data_update=True, max_attempts=15, wait_time=180)
     prefix = prefix = ['Empresas']
     for i in prefix:
         urls = api.lista_urls_receita(f'{i}')
@@ -206,7 +213,7 @@ if __name__ == "__main__":
 # Exemplo de uso
 if __name__ == "__main__":
     bucket_name = "projeto-dados-receita-federal"
-    api = ReceitaCNPJApiGCP(bucket_name=bucket_name, data_update=True, max_attempts=15, wait_time=150)
+    api = ReceitaCNPJApiGCP(bucket_name=bucket_name, data_update=True, max_attempts=15, wait_time=180)
     prefix = prefix = ['Estabelecimentos']
     for i in prefix:
         urls = api.lista_urls_receita(f'{i}')
@@ -392,18 +399,7 @@ rdd.foreach(process_zip_file)
 
 # ------------------------------------------------------------------------------------------------------------------- #
 
-from functools import reduce
-import logging
-from pyspark.sql import SparkSession
-from pyspark.sql.types import StructType, StructField, StringType, IntegerType, FloatType
-from pyspark.sql.functions import regexp_replace, when,length,to_date,upper,lower,col,split,explode,coalesce,concat_ws,concat,lit,broadcast,regexp_extract,month,year,to_date
-from pyspark.sql.functions import broadcast,expr,udf
-from pyspark.sql import SparkSession
-from pyspark.sql.types import *
-from functools import reduce
-from pyspark.sql import SparkSession
-from pyspark.sql.types import *
-from functools import reduce
+
 
 # Definindo os schemas:
 estabelecimentos = StructType([

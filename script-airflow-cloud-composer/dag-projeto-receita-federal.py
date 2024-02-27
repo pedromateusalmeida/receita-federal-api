@@ -10,7 +10,7 @@ REGION = 'us-central1'
 CLUSTER_CONFIG = {
     "master_config": {
         "num_instances": 1,
-        "machine_type_uri": "n1-standard-2",
+        "machine_type_uri": "custom-2-13312-ex",
         "disk_config": {
             "boot_disk_type": "pd-ssd",
             "boot_disk_size_gb": 50
@@ -71,17 +71,83 @@ create_cluster = DataprocCreateClusterOperator(
 )
 
 # Tarefa para enviar o trabalho ao Dataproc
-submit_job = DataprocSubmitJobOperator(
-    task_id='submit_job',
+download_data = DataprocSubmitJobOperator(
+    task_id='download_data',
     job={
         'reference': {'project_id': PROJECT_ID},
         'placement': {'cluster_name': CLUSTER_NAME},
-        'pyspark_job': {'main_python_file_uri': 'gs://projeto-dados-receita-federal/script-dag-dataproc/script-spark-dag.py'},
+        'pyspark_job': {'main_python_file_uri': 'gs://projeto-dados-receita-federal/script-dag-dataproc/download-data-receita-federal.py'},
     },
     region=REGION,
     project_id=PROJECT_ID,
     dag=dag,
 )
+
+# Tarefa para enviar o trabalho ao Dataproc
+unzip_data_empresas = DataprocSubmitJobOperator(
+    task_id='unzip_data_empresas',
+    job={
+        'reference': {'project_id': PROJECT_ID},
+        'placement': {'cluster_name': CLUSTER_NAME},
+        'pyspark_job': {'main_python_file_uri': 'gs://projeto-dados-receita-federal/script-dag-dataproc/unzip-emp-data-rf-storage.py'},
+    },
+    region=REGION,
+    project_id=PROJECT_ID,
+    dag=dag,
+)
+
+# Tarefa para enviar o trabalho ao Dataproc
+unzip_data_estabelecimentos = DataprocSubmitJobOperator(
+    task_id='unzip_data_estabelecimentos',
+    job={
+        'reference': {'project_id': PROJECT_ID},
+        'placement': {'cluster_name': CLUSTER_NAME},
+        'pyspark_job': {'main_python_file_uri': 'gs://projeto-dados-receita-federal/script-dag-dataproc/unzip-estab-data-rf-storage.py'},
+    },
+    region=REGION,
+    project_id=PROJECT_ID,
+    dag=dag,
+)
+
+# Tarefa para enviar o trabalho ao Dataproc
+unzip_data_socios = DataprocSubmitJobOperator(
+    task_id='unzip_data_socios',
+    job={
+        'reference': {'project_id': PROJECT_ID},
+        'placement': {'cluster_name': CLUSTER_NAME},
+        'pyspark_job': {'main_python_file_uri': 'gs://projeto-dados-receita-federal/script-dag-dataproc/unzip-soc-data-rf-storage.py'},
+    },
+    region=REGION,
+    project_id=PROJECT_ID,
+    dag=dag,
+)
+
+# Tarefa para enviar o trabalho ao Dataproc
+unzip_small_data_receita = DataprocSubmitJobOperator(
+    task_id='unzip_small_data_receita',
+    job={
+        'reference': {'project_id': PROJECT_ID},
+        'placement': {'cluster_name': CLUSTER_NAME},
+        'pyspark_job': {'main_python_file_uri': 'gs://projeto-dados-receita-federal/script-dag-dataproc/unzip-small-data-rf-storage.py'},
+    },
+    region=REGION,
+    project_id=PROJECT_ID,
+    dag=dag,
+)
+
+# Tarefa para enviar o trabalho ao Dataproc
+upload_to_bigquery = DataprocSubmitJobOperator(
+    task_id='upload_to_bigquery',
+    job={
+        'reference': {'project_id': PROJECT_ID},
+        'placement': {'cluster_name': CLUSTER_NAME},
+        'pyspark_job': {'main_python_file_uri': 'gs://projeto-dados-receita-federal/script-dag-dataproc/upload-to-bigquery.py'},
+    },
+    region=REGION,
+    project_id=PROJECT_ID,
+    dag=dag,
+)
+
 
 # Tarefa para excluir o cluster
 delete_cluster = DataprocDeleteClusterOperator(
@@ -93,4 +159,4 @@ delete_cluster = DataprocDeleteClusterOperator(
 )
 
 # Definindo dependências
-create_cluster >> submit_job >> delete_cluster
+create_cluster >> download_data >> unzip_data_empresas >> unzip_data_estabelecimentos >> unzip_data_socios >> unzip_small_data_receita >> upload_to_bigquery >> delete_cluster
