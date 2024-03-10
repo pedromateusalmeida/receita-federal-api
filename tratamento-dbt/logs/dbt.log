@@ -1,0 +1,188 @@
+[0m13:51:31.633503 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DD6BB4EB90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DD6BB4EC90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DD6BB4EE90>]}
+
+
+============================== 13:51:31.638507 | 29c78db9-8eb2-4c4c-b036-a4000885870b ==============================
+[0m13:51:31.638507 [info ] [MainThread]: Running with dbt=1.7.9
+[0m13:51:31.639508 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': 'logs', 'profiles_dir': 'C:\\Users\\pedro\\.dbt', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'invocation_command': 'dbt init receita_federal_tratamento', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m13:51:31.639508 [warn ] [MainThread]: [ConfigFolderDirectory]: Unable to parse dict {'dir': WindowsPath('C:/Users/pedro/.dbt')}
+[0m13:51:31.640509 [info ] [MainThread]: Creating dbt configuration folder at 
+[0m13:51:31.641510 [debug] [MainThread]: Starter project path: C:\Users\pedro\AppData\Roaming\Python\Python311\site-packages\dbt\include\starter_project
+[0m13:51:31.651519 [info ] [MainThread]: 
+Your new dbt project "receita_federal_tratamento" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m13:51:31.652520 [info ] [MainThread]: Setting up your profile.
+[0m14:14:25.751551 [info ] [MainThread]: Profile receita_federal_tratamento written to C:\Users\pedro\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m14:14:25.752552 [debug] [MainThread]: Command `dbt init` succeeded at 14:14:25.752552 after 1374.16 seconds
+[0m14:14:25.753553 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DD6B979AD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DD64E5E210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DD6BB43D50>]}
+[0m14:14:25.753553 [debug] [MainThread]: Flushing usage events
+[0m14:14:47.854746 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B18B1F6B10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B18B1F7090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B189EA5ED0>]}
+
+
+============================== 14:14:47.856748 | ae95ebe7-13ad-4e3a-bf42-4af7456ff6ee ==============================
+[0m14:14:47.856748 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:14:47.857749 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': 'C:\\Users\\pedro\\.dbt', 'log_path': 'logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt debug', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m14:14:47.858750 [info ] [MainThread]: dbt version: 1.7.9
+[0m14:14:47.858750 [info ] [MainThread]: python version: 3.11.0
+[0m14:14:47.859750 [info ] [MainThread]: python path: C:\Program Files\Python311\python.exe
+[0m14:14:47.859750 [info ] [MainThread]: os info: Windows-10-10.0.22631-SP0
+[0m14:14:48.722535 [info ] [MainThread]: Using profiles dir at C:\Users\pedro\.dbt
+[0m14:14:48.723536 [info ] [MainThread]: Using profiles.yml file at C:\Users\pedro\.dbt\profiles.yml
+[0m14:14:48.724536 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\pedro\Documents\GitHub\receita-federal-api\tratamento-dbt\dbt_project.yml
+[0m14:14:48.724536 [info ] [MainThread]: adapter type: bigquery
+[0m14:14:48.725538 [info ] [MainThread]: adapter version: 1.7.6
+[0m14:14:48.725538 [info ] [MainThread]: Configuration:
+[0m14:14:48.726538 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m14:14:48.726538 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m14:14:48.726538 [info ] [MainThread]: Required dependencies:
+[0m14:14:48.727539 [debug] [MainThread]: Executing "git --help"
+[0m14:14:48.754564 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m14:14:48.754564 [debug] [MainThread]: STDERR: "b''"
+[0m14:14:48.754564 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m14:14:48.755565 [info ] [MainThread]: Connection:
+[0m14:14:48.756566 [info ] [MainThread]:   method: oauth
+[0m14:14:48.756566 [info ] [MainThread]:   database: kinetic-valor-414812
+[0m14:14:48.756566 [info ] [MainThread]:   execution_project: kinetic-valor-414812
+[0m14:14:48.757567 [info ] [MainThread]:   schema: receitafederal
+[0m14:14:48.757567 [info ] [MainThread]:   location: US
+[0m14:14:48.758567 [info ] [MainThread]:   priority: interactive
+[0m14:14:48.758567 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m14:14:48.758567 [info ] [MainThread]:   impersonate_service_account: None
+[0m14:14:48.759568 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m14:14:48.759568 [info ] [MainThread]:   job_retries: 1
+[0m14:14:48.760569 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m14:14:48.760569 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m14:14:48.760569 [info ] [MainThread]:   keyfile: None
+[0m14:14:48.761570 [info ] [MainThread]:   timeout_seconds: 300
+[0m14:14:48.761570 [info ] [MainThread]:   client_id: None
+[0m14:14:48.762571 [info ] [MainThread]:   token_uri: None
+[0m14:14:48.762571 [info ] [MainThread]:   dataproc_region: None
+[0m14:14:48.762571 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m14:14:48.763572 [info ] [MainThread]:   gcs_bucket: None
+[0m14:14:48.763572 [info ] [MainThread]:   dataproc_batch: None
+[0m14:14:48.764573 [info ] [MainThread]: Registered adapter: bigquery=1.7.6
+[0m14:14:48.764573 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m14:14:48.765574 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:14:57.800210 [debug] [MainThread]: BigQuery adapter: Got an error when attempting to create a bigquery client: 'Runtime Error
+  
+  dbt encountered an error while trying to read your profiles.yml file.
+  
+  Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+  '
+[0m14:14:57.800210 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m14:14:57.801210 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m14:14:57.801210 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\pedro\Documents\GitHub\receita-federal-api\tratamento-dbt\dbt_project.yml> not found
+
+[0m14:14:57.802212 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  Runtime Error
+    
+    dbt encountered an error while trying to read your profiles.yml file.
+    
+    Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+    
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m14:14:57.803212 [debug] [MainThread]: Command `dbt debug` failed at 14:14:57.803212 after 10.01 seconds
+[0m14:14:57.804213 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m14:14:57.804213 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B18B1BA950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B1844BE210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B18B1C2D90>]}
+[0m14:14:57.805214 [debug] [MainThread]: Flushing usage events
+[0m14:16:08.005284 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002215A0DD090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002215A0DD910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002215A0DC990>]}
+
+
+============================== 14:16:08.008286 | a082899c-a06d-4238-9755-98234a40f363 ==============================
+[0m14:16:08.008286 [info ] [MainThread]: Running with dbt=1.7.9
+[0m14:16:08.009288 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'debug': 'False', 'profiles_dir': 'C:\\Users\\pedro\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt debug', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m14:16:08.009288 [info ] [MainThread]: dbt version: 1.7.9
+[0m14:16:08.010289 [info ] [MainThread]: python version: 3.11.0
+[0m14:16:08.010289 [info ] [MainThread]: python path: C:\Program Files\Python311\python.exe
+[0m14:16:08.011290 [info ] [MainThread]: os info: Windows-10-10.0.22631-SP0
+[0m14:16:08.857058 [info ] [MainThread]: Using profiles dir at C:\Users\pedro\.dbt
+[0m14:16:08.858059 [info ] [MainThread]: Using profiles.yml file at C:\Users\pedro\.dbt\profiles.yml
+[0m14:16:08.858059 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\pedro\Documents\GitHub\receita-federal-api\tratamento-dbt\dbt_project.yml
+[0m14:16:08.859060 [info ] [MainThread]: adapter type: bigquery
+[0m14:16:08.860061 [info ] [MainThread]: adapter version: 1.7.6
+[0m14:16:08.860061 [info ] [MainThread]: Configuration:
+[0m14:16:08.860061 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m14:16:08.861062 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m14:16:08.861062 [info ] [MainThread]: Required dependencies:
+[0m14:16:08.862063 [debug] [MainThread]: Executing "git --help"
+[0m14:16:08.889087 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m14:16:08.889087 [debug] [MainThread]: STDERR: "b''"
+[0m14:16:08.890088 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m14:16:08.890088 [info ] [MainThread]: Connection:
+[0m14:16:08.891089 [info ] [MainThread]:   method: oauth
+[0m14:16:08.891089 [info ] [MainThread]:   database: kinetic-valor-414812
+[0m14:16:08.891089 [info ] [MainThread]:   execution_project: kinetic-valor-414812
+[0m14:16:08.892090 [info ] [MainThread]:   schema: receitafederal
+[0m14:16:08.892090 [info ] [MainThread]:   location: US
+[0m14:16:08.893091 [info ] [MainThread]:   priority: interactive
+[0m14:16:08.893091 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m14:16:08.893091 [info ] [MainThread]:   impersonate_service_account: None
+[0m14:16:08.894092 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m14:16:08.894092 [info ] [MainThread]:   job_retries: 1
+[0m14:16:08.895093 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m14:16:08.895093 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m14:16:08.895093 [info ] [MainThread]:   keyfile: None
+[0m14:16:08.896094 [info ] [MainThread]:   timeout_seconds: 300
+[0m14:16:08.896094 [info ] [MainThread]:   client_id: None
+[0m14:16:08.897095 [info ] [MainThread]:   token_uri: None
+[0m14:16:08.897095 [info ] [MainThread]:   dataproc_region: None
+[0m14:16:08.897095 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m14:16:08.898095 [info ] [MainThread]:   gcs_bucket: None
+[0m14:16:08.898095 [info ] [MainThread]:   dataproc_batch: None
+[0m14:16:08.899096 [info ] [MainThread]: Registered adapter: bigquery=1.7.6
+[0m14:16:08.899096 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m14:16:08.899096 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:16:17.917253 [debug] [MainThread]: BigQuery adapter: Got an error when attempting to create a bigquery client: 'Runtime Error
+  
+  dbt encountered an error while trying to read your profiles.yml file.
+  
+  Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+  '
+[0m14:16:17.918254 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m14:16:17.918254 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m14:16:17.919255 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\pedro\Documents\GitHub\receita-federal-api\tratamento-dbt\dbt_project.yml> not found
+
+[0m14:16:17.919255 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  Runtime Error
+    
+    dbt encountered an error while trying to read your profiles.yml file.
+    
+    Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+    
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m14:16:17.921257 [debug] [MainThread]: Command `dbt debug` failed at 14:16:17.921257 after 9.98 seconds
+[0m14:16:17.921257 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m14:16:17.922258 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002215340E210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002215A0DD390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022158DB5C90>]}
+[0m14:16:17.922258 [debug] [MainThread]: Flushing usage events
