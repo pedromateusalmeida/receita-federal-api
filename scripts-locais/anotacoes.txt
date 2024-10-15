@@ -1,0 +1,132 @@
+from scipy.stats import shapiro
+import pandas as pd
+
+def shapiro_wilk_test(df, numeric_col):
+    # Coletar a coluna numérica do Spark DataFrame para um Pandas DataFrame
+    data = df.select(numeric_col).toPandas()
+    
+    # Executar o teste de Shapiro-Wilk usando a função shapiro da scipy
+    stat, p_value = shapiro(data[numeric_col])
+    
+    print(f'Estatística do teste Shapiro-Wilk: {stat}')
+    print(f'Valor-p: {p_value}')
+    
+    # Determinar se a hipótese nula (normalidade) é rejeitada ou não
+    alpha = 0.05
+    if p_value > alpha:
+        print(f'Os dados parecem seguir uma distribuição normal (não rejeitamos H0)')
+    else:
+        print(f'Os dados não seguem uma distribuição normal (rejeitamos H0)')
+    
+    return stat, p_value
+
+# Exemplo de uso
+numeric_col = 'CAP_SOCIAL'
+stat, p_value = shapiro_wilk_test(df, numeric_col)
+
+Jarque-Bera Test
+
+from scipy.stats import jarque_bera
+import pandas as pd
+
+def jarque_bera_test(df, numeric_col):
+    # Coletar a coluna numérica do Spark DataFrame para um Pandas DataFrame
+    data = df.select(numeric_col).toPandas()
+
+    # Executar o teste de Jarque-Bera usando a função jarque_bera da scipy
+    stat, p_value = jarque_bera(data[numeric_col])
+    
+    print(f'Estatística do teste Jarque-Bera: {stat}')
+    print(f'Valor-p: {p_value}')
+    
+    # Determinar se a hipótese nula (normalidade) é rejeitada ou não
+    alpha = 0.05
+    if p_value > alpha:
+        print(f'Os dados parecem seguir uma distribuição normal (não rejeitamos H0)')
+    else:
+        print(f'Os dados não seguem uma distribuição normal (rejeitamos H0)')
+    
+    return stat, p_value
+
+# Exemplo de uso
+numeric_col = 'CAP_SOCIAL'
+stat, p_value = jarque_bera_test(df, numeric_col)
+
+
+Durbin-Watson Statistic
+
+O Estatístico Durbin-Watson é utilizado para verificar a presença de autocorrelação nos resíduos de um modelo de regressão.
+
+from statsmodels.stats.stattools import durbin_watson
+import pandas as pd
+
+def durbin_watson_stat(df, residuals_col):
+    # Coletar a coluna de resíduos do Spark DataFrame para um Pandas DataFrame
+    residuals = df.select(residuals_col).toPandas()
+
+    # Calcular o valor do Durbin-Watson
+    dw_stat = durbin_watson(residuals[residuals_col])
+    
+    print(f'Estatística Durbin-Watson: {dw_stat}')
+    
+    return dw_stat
+
+# Exemplo de uso
+residuals_col = 'residuals'
+dw_stat = durbin_watson_stat(df, residuals_col)
+
+
+Breusch-Pagan Test
+O Teste de Breusch-Pagan é usado para testar a presença de heterocedasticidade (variação não constante) nos resíduos de um modelo de regressão.
+
+from statsmodels.stats.diagnostic import het_breuschpagan
+import pandas as pd
+
+def breusch_pagan_test(df, residuals_col, exog_cols):
+    # Coletar os resíduos e as variáveis independentes
+    residuals = df.select(residuals_col).toPandas()
+    exog = df.select(exog_cols).toPandas()
+
+    # Executar o teste de Breusch-Pagan usando a função het_breuschpagan
+    bp_test = het_breuschpagan(residuals[residuals_col], exog)
+
+    print(f'Estatística Breusch-Pagan: {bp_test[0]}')
+    print(f'Valor-p: {bp_test[1]}')
+
+    return bp_test
+
+# Exemplo de uso
+residuals_col = 'residuals'
+exog_cols = ['SEXO_PROB', 'CNAE', 'UF']  # Substituir pelas variáveis independentes do seu modelo
+bp_test = breusch_pagan_test(df, residuals_col, exog_cols)
+
+
+Se você estiver interessado em detectar autocorrelação nos resíduos, além do Durbin-Watson, o Teste de Breusch-Godfrey também pode ser utilizado:
+
+from statsmodels.stats.diagnostic import acorr_breusch_godfrey
+import pandas as pd
+
+def breusch_godfrey_test(model, lags=1):
+    # Executar o teste de Breusch-Godfrey usando a função acorr_breusch_godfrey
+    bg_test = acorr_breusch_godfrey(model, nlags=lags)
+
+    print(f'Estatística Breusch-Godfrey: {bg_test[0]}')
+    print(f'Valor-p: {bg_test[1]}')
+
+    return bg_test
+
+# Exemplo de uso
+# Aqui "model" seria o modelo de regressão ajustado usando statsmodels
+bg_test = breusch_godfrey_test(model, lags=1)
+
+Teste/Métrica	Objetivo
+Shapiro-Wilk / Jarque-Bera	Testar a normalidade dos resíduos.
+Durbin-Watson / Breusch-Godfrey	Verificar a autocorrelação dos resíduos.
+Breusch-Pagan / White Test	Verificar a heterocedasticidade nos resíduos.
+Variance Inflation Factor (VIF)	Detectar multicolinearidade entre as variáveis.
+R² e Adjusted R²	Medir a adequação do modelo (proporção de variação explicada).
+F-Test	Testar a significância global do modelo.
+t-Test	Verificar a significância de coeficientes.
+K-Fold Cross Validation	Validar a generalização do modelo.
+RMSE, MAE, MSE	Avaliar o erro das previsões do modelo.
+Pearson Correlation	Detectar correlações fortes entre variáveis preditivas.
